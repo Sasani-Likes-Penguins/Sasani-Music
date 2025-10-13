@@ -1,0 +1,29 @@
+# Windows system files
+Thumbs.db
+desktop.ini
+
+# macOS system files (if you share across systems)
+.DS_Store
+
+# MuseScore backup and autosave files
+*.mscz,*
+*.mscbackup
+*.autosave
+
+# Temporary or exported audio formats you don’t want versioned
+*.wav
+*.flac
+*.aiff
+
+# Temporary files from editors or compressors
+*.tmp
+*.bak
+*.zip
+
+# IDE or text editor settings (optional)
+.vscode/
+.idea/
+
+# Local-only folders (optional, if you use them)
+_cache/
+output/
