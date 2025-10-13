@@ -27,4 +27,8 @@ I have several instruments in mind I'd love to learn, so eventually hope to incl
 ## Future plans
 * I'd like to add some tips and guides at some point in the future.
 
-**Readme and repo is a WIP**
+*Readme and repo is a WIP*
+
+## License
+This repository’s sheet music and recordings are licensed under the  
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
