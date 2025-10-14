@@ -1,57 +1,77 @@
----
-layout: default
-title: Sasani Music Library
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sasani Music Library</title>
+<style>
+  body { background:#0b0b0b; color:#e0e0e0; font-family:Segoe UI, sans-serif; padding:1em; }
+  a { color:#66ccff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  ul { list-style-type:none; padding-left:1em; }
+  li.folder > span { cursor:pointer; font-weight:bold; color:#99e0ff; }
+  li.folder > ul { display:none; margin-left:1em; }
+</style>
+</head>
+<body>
+<h1>🎵 Sasani Music Library</h1>
+<p>Click folders to expand. PDFs and MP3s open in new tabs.</p>
 
-<div style="max-width: 800px; margin: auto; color: #ddd;">
-  {{ content }}
-</div>
-
-<hr style="margin: 2em 0; border: none; border-top: 1px solid #333;" />
-
-<h2>📁 File Library</h2>
-<div id="content">Loading file list…</div>
+<div id="file-tree"></div>
 
 <script>
-const user = "Sasani-Likes-Penguins";
-const repo = "Sasani-Music";
-const branch = "main";
-
-async function fetchFolder(path = "") {
-  const res = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`);
-  return res.ok ? await res.json() : [];
+async function fetchRepoTree() {
+  const user = "Sasani-Likes-Penguins";
+  const repo = "Sasani-Music";
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/git/trees/main?recursive=1`;
+  const res = await fetch(apiUrl);
+  const data = await res.json();
+  return data.tree.filter(item => item.type === "blob" || item.type === "tree");
 }
 
-async function renderFolder(path = "", container) {
-  const files = await fetchFolder(path);
-  if (!files.length) return;
+function buildTree(data) {
+  const tree = {};
+  data.forEach(item => {
+    const parts = item.path.split("/");
+    let current = tree;
+    parts.forEach((part, i) => {
+      if (!current[part]) current[part] = (i === parts.length - 1 ? null : {});
+      current = current[part];
+    });
+  });
+  return tree;
+}
 
+function createList(tree, basePath = "") {
   const ul = document.createElement("ul");
-  ul.style.listStyleType = "none";
-  ul.style.marginLeft = "1em";
-
-  for (const file of files) {
+  for (const name in tree) {
     const li = document.createElement("li");
-    li.style.margin = "0.2em 0";
-
-    if (file.type === "dir") {
-      li.innerHTML = `<strong>📁 ${file.name}</strong>`;
-      const sub = document.createElement("div");
-      sub.style.marginLeft = "1.2em";
-      li.appendChild(sub);
-      await renderFolder(file.path, sub);
-    } else if (!file.name.startsWith('.') && !["index.html","README.md"].includes(file.name)) {
-      li.innerHTML = `<a href="${file.download_url}" target="_blank">${file.name}</a>`;
+    if (tree[name] === null) {
+      const a = document.createElement("a");
+      a.href = `${basePath}${name}`;
+      a.textContent = name;
+      a.target = "_blank";
+      li.appendChild(a);
+    } else {
+      li.classList.add("folder");
+      const span = document.createElement("span");
+      span.textContent = name + "/";
+      span.onclick = () => {
+        const sub = li.querySelector("ul");
+        sub.style.display = sub.style.display === "none" ? "block" : "none";
+      };
+      li.appendChild(span);
+      li.appendChild(createList(tree[name], basePath + name + "/"));
     }
-
     ul.appendChild(li);
   }
-  container.appendChild(ul);
+  return ul;
 }
 
-(async function() {
-  const container = document.getElementById("content");
-  container.innerHTML = "";
-  await renderFolder("", container);
-})();
+fetchRepoTree().then(data => {
+  const tree = buildTree(data);
+  const root = document.getElementById("file-tree");
+  root.appendChild(createList(tree));
+});
 </script>
+</body>
+</html>
