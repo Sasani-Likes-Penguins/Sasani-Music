@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sasani Music Library</title>
-<style>
-  body {
-    font-family: sans-serif;
-    background-color: #111;
-    color: #ddd;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  a {
-    color: #66ccff;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  ul {
-    list-style-type: none;
-    margin-left: 1rem;
-    padding-left: 0;
-  }
-  .folder { font-weight: bold; margin-top: 0.5rem; }
-</style>
-</head>
-<body>
-<h1>Sasani Music Library</h1>
-<p>Browse sheet music and recordings by folder:</p>
-<div id="content">Loading...</div>
+---
+layout: default
+title: Sasani Music Library
+---
+
+<div style="max-width: 800px; margin: auto; color: #ddd;">
+  {{ content }}
+</div>
+
+<hr style="margin: 2em 0; border: none; border-top: 1px solid #333;" />
+
+<h2>📁 File Library</h2>
+<div id="content">Loading file list…</div>
 
 <script>
 const user = "Sasani-Likes-Penguins";
@@ -39,37 +18,40 @@ const repo = "Sasani-Music";
 const branch = "main";
 
 async function fetchFolder(path = "") {
-  const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`;
-  const res = await fetch(url);
-  if (!res.ok) return [];
-  return await res.json();
+  const res = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${branch}`);
+  return res.ok ? await res.json() : [];
 }
 
 async function renderFolder(path = "", container) {
   const files = await fetchFolder(path);
+  if (!files.length) return;
+
   const ul = document.createElement("ul");
+  ul.style.listStyleType = "none";
+  ul.style.marginLeft = "1em";
 
   for (const file of files) {
     const li = document.createElement("li");
+    li.style.margin = "0.2em 0";
+
     if (file.type === "dir") {
-      li.innerHTML = `<span class="folder">📁 ${file.name}</span>`;
-      await renderFolder(file.path, li); // recurse into subfolder
-    } else if (file.name !== "index.html" && file.name !== "README.md") {
+      li.innerHTML = `<strong>📁 ${file.name}</strong>`;
+      const sub = document.createElement("div");
+      sub.style.marginLeft = "1.2em";
+      li.appendChild(sub);
+      await renderFolder(file.path, sub);
+    } else if (!file.name.startsWith('.') && !["index.html","README.md"].includes(file.name)) {
       li.innerHTML = `<a href="${file.download_url}" target="_blank">${file.name}</a>`;
     }
+
     ul.appendChild(li);
   }
-
   container.appendChild(ul);
 }
 
-async function start() {
+(async function() {
   const container = document.getElementById("content");
   container.innerHTML = "";
   await renderFolder("", container);
-}
-
-start();
+})();
 </script>
-</body>
-</html>
