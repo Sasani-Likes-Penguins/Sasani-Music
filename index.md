@@ -4,10 +4,12 @@ This repository contains my original arrangements, example recordings creative b
 
 In the future I will add my own compositions.
 
+*Heckin' big ol' WIP*
+
 ## The Sound-y Bits
-* (Alto Recorder)[alto.md]
-* (Soprano Recorder)[soprano.md]
-* (Tenor Recorder)[tenor.md]
+* [Alto Recorder](alto.md)
+* [Soprano Recorder](soprano.md)
+* [Tenor Recorder](tenor.md)
 
 
 ## More Instrument Info
