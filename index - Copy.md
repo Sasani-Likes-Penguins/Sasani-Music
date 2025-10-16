@@ -5,52 +5,8 @@ This repository contains my original arrangements, example recordings creative b
 In the future I will add my own compositions.
 
 ## The Sound-y Bits
-<script>
-const user = "Sasani-Likes-Penguins";
-const repo = "Sasani-Music";
-const rootPath = "Music";  // This is the folder treated as the root
-
-// Function to fetch and display folders/files recursively
-async function showFolder(path, container) {
-  const res = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
-  const items = await res.json();
-
-  const ul = document.createElement("ul");
-
-  for (const item of items) {
-    const li = document.createElement("li");
-    if (item.type === "dir") {
-      li.textContent = item.name;
-      li.style.cursor = "pointer";
-      li.style.fontWeight = "bold";
-      const subList = document.createElement("ul");
-      subList.style.display = "none";
-      subList.style.marginLeft = "20px";
-      li.onclick = async () => {
-        if (subList.childElementCount === 0) {
-          await showFolder(item.path, subList);
-        }
-        subList.style.display = subList.style.display === "none" ? "block" : "none";
-      };
-      li.appendChild(subList);
-    } else {
-      const a = document.createElement("a");
-      a.href = item.download_url;
-      a.textContent = item.name;
-      a.style.textDecoration = "none";
-      a.style.color = "#00bfff";
-      li.appendChild(a);
-    }
-    ul.appendChild(li);
-  }
-  container.appendChild(ul);
-}
-
-// On page load, show *contents of Music/* — but not Music itself
-showFolder(rootPath, document.body);
-</script>
-
-
+<!-- MUSIC-LIST-START -->
+<!-- MUSIC-LIST-END -->
 
 ## More Instrument Info
 I only write/arrange for what I have which are:
