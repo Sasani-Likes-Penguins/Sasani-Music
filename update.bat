@@ -2,8 +2,8 @@
 echo ~~~~~~~~~~~~~~~~~~~~~~~~
 echo Updating ALL the things!
 echo ~~~~~~~~~~~~~~~~~~~~~~~~
-git add -A
+git add --all
 set /p input=Commit message:
-git commit -m "Auto updating site. %input%" 
+git commit -a -m "Updating... %input%"
 git push
 pause
