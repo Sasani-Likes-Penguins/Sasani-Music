@@ -7,12 +7,14 @@ In the future I will add my own compositions.
 ## The Sound-y Bits
 <details>
   <summary><b>Alto Recorder</b></summary>
-  <details>
-    <summary><i>● Baroque, Classical, &c.</i></summary>
-    ○ Arioso (J.S. Bach, Alto Recorder, arr. Sasani)
-    <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).pdf">PDF Sheet</a> || 
-    <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).mp3">Download MP3</a>
-    </details>  
+  <div style="margin-left: 2em;">
+    <details>
+      <summary><i>Baroque, Classical, &c.</i></summary>
+      ● Arioso (J.S. Bach, Alto Recorder, arr. Sasani)
+      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).pdf">PDF Sheet</a> || 
+      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).mp3">Download MP3</a>
+    </div>
+  </details>  
 </details>
 
 
