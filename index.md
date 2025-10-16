@@ -10,8 +10,8 @@ In the future I will add my own compositions.
   <details open>
     <summary><i>Baroque, Classical, &c.</i></summary>
     <p><b>Arioso (J.S. Bach, Alto Recorder, arr. Sasani)</b> 
-      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso.pdf">PDF Sheet</a> 
-      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso.mp3">Download MP3</a>
+      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).pdf">PDF Sheet</a> 
+      <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).mp3">Download MP3</a>
       <audio controls>
         <source src="Baroque, Classical, etc/Arioso.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
