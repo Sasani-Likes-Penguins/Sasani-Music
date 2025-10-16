@@ -5,17 +5,25 @@ This repository contains my original arrangements, example recordings creative b
 In the future I will add my own compositions.
 
 ## The Sound-y Bits
+
 <details open>
-<summary><b>Alto Recorder</b></summary>
-<details open>
-<summary><i>Baroque, Classical, &c.</i></summary>
-- Arioso (JS Bach, Alto Recorder, arr by Sasani)
-<audio controls>
-    <source src="Recorder (Alto)/Baroque & Classical/Arioso.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>  
-  [PDF Sheet](Recorder (Alto)/Baroque & Classical/Arioso.pdf) • [Download MP3](Music/Recorder (Alto)/Baroque & Classical/Arioso.mp3)
-</details>
+  <summary><b>Alto Recorder</b></summary>
+
+  <details open>
+    <summary><i>Baroque, Classical, &c.</i></summary>
+
+    <p><b>Arioso (J.S. Bach, Alto Recorder, arr. Sasani)</b></p>
+
+    <audio controls>
+      <source src="Recorder (Alto)/Baroque & Classical/Arioso.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <p>
+      <a href="Recorder (Alto)/Baroque & Classical/Arioso.pdf">PDF Sheet</a> •
+      <a href="Recorder (Alto)/Baroque & Classical/Arioso.mp3">Download MP3</a>
+    </p>
+  </details>
 </details>
 
 ## More Instrument Info
