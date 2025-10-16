@@ -326,6 +326,7 @@ In the future I will add my own compositions.
 <details><summary><b>Video Game Music</b></summary>
 </details>
 </details>
+
 <!-- MUSIC-LIST-END -->
 
 ## More Instrument Info
@@ -356,3 +357,4 @@ I have several instruments in mind I'd love to learn, so eventually hope to incl
 ## License
 This repositoryâ€™s sheet music and recordings are licensed under the  
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
