@@ -1,4 +1,4 @@
-$root = "Music"
+﻿$root = "Music"
 $indexFile = "index.md"
 $marker = "<!-- MUSIC-LIST -->"
 
@@ -14,8 +14,8 @@ $musicList = Get-ChildItem -Path $root -Recurse | ForEach-Object {
 # Read the existing index.md
 $content = Get-Content $indexFile -Raw
 
-# Replace everything after the marker with the new list
-if ($content -match "(?s)($marker).*") {
+# Split the file into the part before and after the marker
+if ($content -match "(?s)(.*$marker)") {
     $before = $matches[1]
     $newContent = $before + "`r`n" + ($musicList -join "`r`n")
     Set-Content $indexFile $newContent -Encoding UTF8
