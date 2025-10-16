@@ -4,74 +4,52 @@ This repository contains my original arrangements, example recordings creative b
 
 In the future I will add my own compositions.
 
-## Categories
-<div id="file-tree">Loading files...</div>
-
+## The Sound-y Bits
 <script>
-async function fetchRepoTree() {
-  const user = "Sasani-Likes-Penguins";   // your GitHub username
-  const repo = "Sasani-Music";            // your repository name
-  const apiUrl = `https://api.github.com/repos/${user}/${repo}/git/trees/main?recursive=1`;
-  const res = await fetch(apiUrl);
-  const data = await res.json();
-  return data.tree.filter(item => item.type === "blob" || item.type === "tree");
-}
+const user = "Sasani-Likes-Penguins";
+const repo = "Sasani-Music";
+const rootPath = "Music";  // This is the folder treated as the root
 
-function buildTree(data) {
-  const tree = {};
-  data.forEach(item => {
-    const parts = item.path.split("/");
-    let current = tree;
-    parts.forEach((part, i) => {
-      if (!current[part]) current[part] = (i === parts.length - 1 ? null : {});
-      current = current[part];
-    });
-  });
-  return tree;
-}
+// Function to fetch and display folders/files recursively
+async function showFolder(path, container) {
+  const res = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+  const items = await res.json();
 
-function createList(tree, basePath = "") {
   const ul = document.createElement("ul");
-  ul.style.listStyle = "none";
-  ul.style.paddingLeft = "1em";
 
-  for (const name in tree) {
+  for (const item of items) {
     const li = document.createElement("li");
-
-    if (tree[name] === null) {
-      const a = document.createElement("a");
-      a.href = `${basePath}${name}`;
-      a.textContent = name;
-      a.target = "_blank";
-      li.appendChild(a);
-    } else {
-      const span = document.createElement("span");
-      span.textContent = "📁 " + name;
-      span.style.cursor = "pointer";
-      span.style.color = "#66ccff";
-      span.onclick = () => {
-        const sub = li.querySelector("ul");
-        sub.style.display = sub.style.display === "none" ? "block" : "none";
-      };
-      li.appendChild(span);
-
-      const subList = createList(tree[name], basePath + name + "/");
+    if (item.type === "dir") {
+      li.textContent = item.name;
+      li.style.cursor = "pointer";
+      li.style.fontWeight = "bold";
+      const subList = document.createElement("ul");
       subList.style.display = "none";
+      subList.style.marginLeft = "20px";
+      li.onclick = async () => {
+        if (subList.childElementCount === 0) {
+          await showFolder(item.path, subList);
+        }
+        subList.style.display = subList.style.display === "none" ? "block" : "none";
+      };
       li.appendChild(subList);
+    } else {
+      const a = document.createElement("a");
+      a.href = item.download_url;
+      a.textContent = item.name;
+      a.style.textDecoration = "none";
+      a.style.color = "#00bfff";
+      li.appendChild(a);
     }
-
     ul.appendChild(li);
   }
-  return ul;
+  container.appendChild(ul);
 }
 
-fetchRepoTree().then(data => {
-  const tree = buildTree(data);
-  const root = document.getElementById("file-tree");
-  root.textContent = "";
-  root.appendChild(createList(tree));
-});
+// On page load, show *contents of Music/* — but not Music itself
+showFolder(rootPath, document.body);
 </script>
+
 
 
 ## More Instrument Info
