@@ -5,24 +5,16 @@ This repository contains my original arrangements, example recordings creative b
 In the future I will add my own compositions.
 
 ## The Sound-y Bits
-<details open>
+<details>
   <summary><b>Alto Recorder</b></summary>
-  <details open>
-    <summary><i>&nsbp;● Baroque, Classical, &c.
-  </i>
-</summary>
-<p>
-  &nsbp;&nsbp;○ Arioso (J.S. Bach, Alto Recorder, arr. Sasani)
-  </b> 
-      <a href="Recorder%20(Alto)/Baroque,%20Classical,%20etc/Arioso%20(JS%20Bach,%20Alto%20Recorder,%20arr%20by%20Sasani).pdf">PDF Sheet</a> 
-      <a href="Recorder%20(Alto)/Baroque,%20Classical,%20etc/Arioso%20(JS%20Bach,%20Alto%20Recorder,%20arr%20by%20Sasani).mp3">Download MP3</a>
-      <audio controls>
-        <source src="Baroque,%20Classical,%20etc/Arioso%20(JS%20Bach,%20Alto%20Recorder,%20arr%20by%20Sasani).mp3" type="audio/mpeg">
-        It seems your browser doesn't like to play MP3s. Did you know MP3 stands for Majestic Penguin Trio?
-      </audio>
-    </p>
-  </details>
+  <p><details>
+    <summary><i>&nsbp;● Baroque, Classical, &c.</i></summary>
+    ○ Arioso (J.S. Bach, Alto Recorder, arr. Sasani)
+    <p><a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).pdf">PDF Sheet</a> || 
+    <a href="Recorder (Alto)/Baroque, Classical, etc/Arioso (JS Bach, Alto Recorder, arr by Sasani).mp3">Download MP3</a>
+  </p></details>
 </details>
+
 
 ## More Instrument Info
 I only write/arrange for what I have which are:
