@@ -1,16 +1,33 @@
 # Sasani-Music
+## Contents
 
+
+***Heckin' big ol' WIP***
+
+### Information
 This repository contains my original arrangements, example recordings creative by the software I use, and will eventually have recordings of myself playing.
 
 In the future I will add my own compositions.
 
-*Heckin' big ol' WIP*
-
 ## The Sound-y Bits
+### Recorders
 * [Alto Recorder](alto.md)
 * [Soprano Recorder](soprano.md)
 * [Tenor Recorder](tenor.md)
 
+### Native American style flutes
+Note: 
+*Three versions of PDFs can be downloaded: staff notation, staff notation with Nakai tabs, and Nakai tabs without staff notation.*
+* A minor
+* B♭ minor
+* F♯ minor
+
+### Irish Whistles
+Note:
+*Available as staff notation or staff notation with whistle tabs.*
+* High D major (D5)
+* Low D major (D4)
+* B major (B5)
 
 ## More Instrument Info
 I only write/arrange for what I have which are:
