@@ -6,8 +6,8 @@ title: Alto Recorder Arrangements
 # Alto Recorder Arrangements
 ## Contents
 
-- [[#Baroque, Classical, etc.|Baroque, Classical, etc.]]
-	- [[#Baroque, Classical, etc.#Bach, J. S.|Bach, J. S.]]
+- [#baroque-classical-etc|Baroque, Classical, etc.]
+	- [#baroque-classical-etc#bach-j-s|Bach, J. S.]
 
 
 ---
