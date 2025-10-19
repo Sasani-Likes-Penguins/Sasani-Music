@@ -27,3 +27,6 @@ desktop.ini
 # Local-only folders (optional, if you use them)
 _cache/
 output/
+~templates
+.trash
+.obsidian
