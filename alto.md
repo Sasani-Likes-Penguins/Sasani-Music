@@ -13,8 +13,8 @@ title: Alto Recorder Arrangements
 ---
 
 ### Baroque, Classical, etc.
+<details>
 #### Bach, J. S.
 - Arioso, J. S. Bach [pdf](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.pdf) . [mp3](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3) <audio controls style="vertical-align: middle; height: 25px;">
-  <source src="/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3" type="audio/mpeg">
-</audio>
-
+  <source src="/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3" type="audio/mpeg"></audio>
+</details>
