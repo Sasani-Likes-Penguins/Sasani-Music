@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Alto%20Recorder
+title: Alto Recorder Arrangements
 ---
 
-# Alto Recorder
+# Alto Recorder Arrangements
 ## Contents
+- [[#Baroque, Classical, etc.|Baroque, Classical, etc.]]
 
 
 ---
