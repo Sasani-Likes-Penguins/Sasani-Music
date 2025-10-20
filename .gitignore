@@ -30,3 +30,6 @@ output/
 ~templates
 .trash
 .obsidian
+
+# Backup files
+*.backup
