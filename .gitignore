@@ -14,7 +14,6 @@ desktop.ini
 *.wav
 *.flac
 *.aiff
-*.mp3
 
 # Temporary files from editors or compressors
 *.tmp
