@@ -14,7 +14,4 @@ title: Alto Recorder Arrangements
 
 ### Baroque, Classical, etc.
 #### Bach, J. S.
-- Arioso, J. S. Bach [pdf](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.pdf) . [mp3](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3) <audio controls style="vertical-align: middle; height: 25px;">
-  <source src="/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3" type="audio/mpeg"></audio> <audio controls preload="none" aria-label="Arioso, J. S. Bach — Alto Recorder (arrangement)">
-  <source src="{{ '/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mp3' | relative_url }}" type="audio/mpeg">
-  Your browser must not like music because it can’t play the mp3.
+- Arioso, J. S. Bach [pdf](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.pdf) . [midi](/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mid) <script src="https://cdn.jsdelivr.net/npm/html-midi-player@1.5.0/dist/html-midi-player.min.js"></script> <midi-player src="/Recorder-alto/Baroque_Classical_etc/Arioso_JS_Bach_Alto_Recorder_arr_by_Sasani.mid" sound-font></midi-player>   
