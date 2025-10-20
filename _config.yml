@@ -1,8 +1,5 @@
 title: "Sasani Music Library"
 description: "Sheet music and recordings by Sasani"
-# The full URL of the site (used by absolute_url)
 url: "https://Sasani-Likes-Penguins.github.io"
-# For a Project Page, set baseurl to "/Sasani-Music"
-# For a User/Org Page, set baseurl to "" (empty string)
 baseurl: "/Sasani-Music"
 theme: jekyll-theme-slate
