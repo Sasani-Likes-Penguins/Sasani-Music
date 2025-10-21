@@ -14,8 +14,7 @@ title: Alto Recorder Arrangements
 [***back to main page***](index.md)
 ### Baroque, Classical, etc.
 #### Bach, J. S.
-- Name \[[pdf](recorder-alto/baroque_classical_etc/arioso_from_cantata_bwv-no-156-bach-js.pdf)\] \[[mp3](recorder-alto/baroque_classical_etc/arioso_from_cantata_bwv-no-156-bach-js.mp3)\] <audio controls style="vertical-align: middle; height: 25px;">
-  <source src="https://music.sasani.nexus/recorder-alto/baroque_classical_etc/arioso_from_cantata_bwv-no-156-bach-js.mp3" type="audio/mpeg"></audio>
+- Arioso from Cantata BWV156 \[[pdf](recorder-alto/baroque_classical_etc/arioso_from_cantata_bwv-no-156-bach-js.pdf)\] \[[mp3](recorder-alto/baroque_classical_etc/arioso_from_cantata_bwv-no-156-bach-js.mp3)\]
 
 #### Schubert, Franz
-- Name \[[pdf](Recorder-alto/Baroque_Classical_etc/Ave_Maria-Schubert_Opus_52_#9_Alto_Recorder_arr_by_Sasani.pdf)\] \[[mp3](Recorder-alto/Baroque_Classical_etc/Ave_Maria-Schubert_Opus_52_#9_Alto_Recorder_arr_by_Sasani.mp3)\] <audio controls style="vertical-align: middle; height: 25px;">  <source src="Recorder-alto/Baroque_Classical_etc/Ave_Maria-Schubert_Opus_52_#9_Alto_Recorder_arr_by_Sasani.mp3" type="audio/mpeg"></audio>
+- Ave Maria, Opus 52 #9 \[[pdf](recorder-alto/baroque_classical_etc/ave_maria-schubert_opus_52-no-9_alto_recorder.pdf)\] \[[mp3](recorder-alto/baroque_classical_etc/ave_maria-schubert_opus_52-no-9_alto_recorder.mp3)\]
