@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sasani Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0f14;
+      --bg2:       #13161e;
+      --bg3:       #1a1e2a;
+      --surface:   #1e2230;
+      --border:    #2a2f42;
+      --teal:      #5ec4b6;
+      --teal-dim:  #3a8f85;
+      --rose:      #c47a8a;
+      --text:      #d4d8e8;
+      --text-dim:  #7a8099;
+      --text-soft: #a0a8c0;
+      --staff:     rgba(94,196,182,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 44px,
+        var(--staff) 44px, var(--staff) 45px,
+        transparent 45px, transparent 52px,
+        var(--staff) 52px, var(--staff) 53px,
+        transparent 53px, transparent 60px,
+        var(--staff) 60px, var(--staff) 61px,
+        transparent 61px, transparent 68px,
+        var(--staff) 68px, var(--staff) 69px,
+        transparent 69px, transparent 76px,
+        var(--staff) 76px, var(--staff) 77px,
+        transparent 77px, transparent 140px
+      );
+    }
+
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 5rem 2rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .clef {
+      display: block;
+      font-size: 4.5rem;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 1rem;
+      animation: rise 0.9s ease both;
+      filter: drop-shadow(0 0 18px rgba(94,196,182,0.4));
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      animation: rise 1s ease 0.1s both;
+    }
+
+    .tagline {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--teal-dim);
+      animation: rise 1s ease 0.2s both;
+    }
+
+    .about {
+      position: relative;
+      z-index: 10;
+      max-width: 720px;
+      margin: 3.5rem auto;
+      padding: 2.5rem 3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--teal);
+      border-radius: 2px;
+      animation: rise 0.9s ease 0.3s both;
+    }
+
+    .about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .about p:last-of-type { margin-bottom: 0.5rem; }
+
+    .license-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.9rem;
+      background: var(--bg3);
+      border: 1px solid var(--teal-dim);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .license-badge:hover { background: var(--bg2); }
+
+    .section-wrap {
+      position: relative;
+      z-index: 10;
+      max-width: 1080px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .group { margin-bottom: 2.5rem; }
+
+    .group-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.9rem;
+      padding-left: 0.2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      animation: rise 0.6s ease both;
+    }
+
+    .card:hover {
+      border-color: var(--teal-dim);
+      background: var(--surface);
+      transform: translateY(-2px);
+    }
+
+    .card-icon { font-size: 1.4rem; flex-shrink: 0; width: 2rem; text-align: center; }
+
+    .card-name {
+      font-size: 0.85rem;
+      letter-spacing: 0.07em;
+      color: var(--text);
+      display: block;
+    }
+
+    .card-key {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--teal-dim);
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    footer a { color: var(--teal-dim); text-decoration: none; }
+    footer a:hover { color: var(--teal); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .about { padding: 1.75rem; margin: 2rem 1rem; }
+      .section-wrap { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="clef">𝄞</span>
+    <h1>Sasani Music</h1>
+    <p class="tagline">Free Sheet Music &amp; Audio — For Every Player</p>
+  </header>
+
+  <section class="about">
+    <h2>About this library</h2>
+    <p>
+      Sasani Music is a free, open library of sheet music arrangements paired with MP3 audio examples,
+      built to make music more accessible to everyone. Spanning many genres and eras, the arrangements
+      here cover a wide variety of instruments — from tin whistles and recorders to kalimba and xiao.
+    </p>
+    <p>
+      All arrangements are free to use, share, and adapt for non-commercial purposes under the Creative Commons license below.
+    </p>
+    <a class="license-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
+      ⊕ CC BY-NC-SA 4.0 License
+    </a>
+  </section>
+
+  <div class="section-wrap">
+    <h2 class="section-title">Browse by Instrument</h2>
+
+    <div class="group">
+      <p class="group-label">Whistles</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/whistle-high-d/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">High D</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-low-d/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low D</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-low-g/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low G</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-b/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-b♭/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B♭</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-g-mix/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">G Mixolydian</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Recorders</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/recorder-soprano/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Soprano</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-alto/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Alto</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-tenor/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Tenor</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-bass/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Bass</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">World Flutes</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/naf-a/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">A</span></span>
+        </a>
+        <a class="card" href="./arrangements/naf-f♯/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">F♯</span></span>
+        </a>
+        <a class="card" href="./arrangements/bawu-f/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Bawu</span><span class="card-key">F</span></span>
+        </a>
+        <a class="card" href="./arrangements/xiao-g/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Xiao</span><span class="card-key">G</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Ukulele</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/ukulele/index.html">
+          <span class="card-icon">🪕</span>
+          <span class="card-text"><span class="card-name">Ukulele</span><span class="card-key">Standard</span></span>
+        </a>
+        <a class="card" href="./arrangements/ukulele-low-g/index.html">
+          <span class="card-icon">🪕</span>
+          <span class="card-text"><span class="card-name">Ukulele</span><span class="card-key">Low G</span></span>
+        </a>
+        <a class="card" href="./arrangements/ukulele-bass/index.html">
+          <span class="card-icon">🪕</span>
+          <span class="card-text"><span class="card-name">Ukulele</span><span class="card-key">Bass</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Other Instruments</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/harmonica-c/index.html">
+          <span class="card-icon">🎸</span>
+          <span class="card-text"><span class="card-name">Harmonica</span><span class="card-key">C</span></span>
+        </a>
+        <a class="card" href="./arrangements/kalimba-17C/index.html">
+          <span class="card-icon">✦</span>
+          <span class="card-text"><span class="card-name">Kalimba</span><span class="card-key">17 Key — C</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Ensemble</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/ensemble/index.html">
+          <span class="card-icon">🎼</span>
+          <span class="card-text"><span class="card-name">Ensemble Arrangements</span><span class="card-key">Multiple parts</span></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Sasani Music &nbsp;·&nbsp;
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+      &nbsp;·&nbsp; Free for all
+    </p>
+  </footer>
+
+</body>
+</html>
