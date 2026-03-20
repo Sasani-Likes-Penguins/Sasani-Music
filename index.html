@@ -4,23 +4,26 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sasani Music</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0f14;
-      --bg2:       #13161e;
-      --bg3:       #1a1e2a;
-      --surface:   #1e2230;
-      --border:    #2a2f42;
-      --teal:      #5ec4b6;
-      --teal-dim:  #3a8f85;
-      --rose:      #c47a8a;
-      --text:      #d4d8e8;
-      --text-dim:  #7a8099;
-      --text-soft: #a0a8c0;
-      --staff:     rgba(94,196,182,0.06);
+      --bg:         #0e0c14;
+      --bg2:        #141020;
+      --bg3:        #1a1528;
+      --surface:    #1f1a30;
+      --border:     #2e2845;
+      --pink:       #f0a0b8;
+      --pink-dim:   #a05878;
+      --pink-glow:  rgba(240,160,184,0.15);
+      --teal:       #7dcfbf;
+      --teal-dim:   #4a9e90;
+      --lavender:   #b8a8d8;
+      --text:       #e8e0f0;
+      --text-soft:  #a898c0;
+      --text-dim:   #6a5f80;
+      --star:       rgba(240,160,184,0.5);
     }
 
     html { scroll-behavior: smooth; }
@@ -28,137 +31,182 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
       font-size: 16px;
       line-height: 1.7;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
+    /* ── STARFIELD ── */
+    .stars {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent 0px, transparent 44px,
-        var(--staff) 44px, var(--staff) 45px,
-        transparent 45px, transparent 52px,
-        var(--staff) 52px, var(--staff) 53px,
-        transparent 53px, transparent 60px,
-        var(--staff) 60px, var(--staff) 61px,
-        transparent 61px, transparent 68px,
-        var(--staff) 68px, var(--staff) 69px,
-        transparent 69px, transparent 76px,
-        var(--staff) 76px, var(--staff) 77px,
-        transparent 77px, transparent 140px
-      );
+      overflow: hidden;
     }
 
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--star);
+      animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.1; transform: scale(0.8); }
+      to   { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    /* ── HEADER ── */
     header {
       position: relative;
       z-index: 10;
       text-align: center;
-      padding: 5rem 2rem 3.5rem;
-      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem 3rem;
     }
 
-    .clef {
-      display: block;
-      font-size: 4.5rem;
-      color: var(--teal);
-      line-height: 1;
-      margin-bottom: 1rem;
-      animation: rise 0.9s ease both;
-      filter: drop-shadow(0 0 18px rgba(94,196,182,0.4));
+    .logo-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: popIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
     }
+
+    .clef-bubble {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--pink-dim);
+      box-shadow: 0 0 24px var(--pink-glow), inset 0 0 16px rgba(240,160,184,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .clef-bubble:hover { transform: scale(1.08) rotate(-5deg); }
 
     h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 300;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
       color: var(--text);
-      animation: rise 1s ease 0.1s both;
+      animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+    }
+
+    h1 span {
+      color: var(--pink);
     }
 
     .tagline {
-      margin-top: 0.8rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.28em;
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--teal-dim);
-      animation: rise 1s ease 0.2s both;
+      color: var(--text-dim);
+      animation: fadeUp 0.8s ease 0.25s both;
     }
 
+    .dots {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      animation: fadeUp 0.8s ease 0.35s both;
+    }
+
+    .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--pink-dim);
+    }
+
+    .dot:nth-child(2) { background: var(--teal-dim); }
+    .dot:nth-child(3) { background: var(--lavender); opacity: 0.6; }
+
+    /* ── ABOUT ── */
     .about {
       position: relative;
       z-index: 10;
-      max-width: 720px;
-      margin: 3.5rem auto;
-      padding: 2.5rem 3rem;
+      max-width: 680px;
+      margin: 2.5rem auto;
+      padding: 2rem 2.5rem;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-top: 2px solid var(--teal);
-      border-radius: 2px;
-      animation: rise 0.9s ease 0.3s both;
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(240,160,184,0.05);
+      animation: fadeUp 0.8s ease 0.3s both;
     }
 
-    .about h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--teal);
-      margin-bottom: 0.75rem;
+    .about::before {
+      content: '♪';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      padding: 0 0.75rem;
+      color: var(--pink);
+      font-size: 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
     }
 
     .about p {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--text-soft);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
-    .about p:last-of-type { margin-bottom: 0.5rem; }
+    .about p:last-of-type { margin-bottom: 0.75rem; }
 
     .license-badge {
-      display: inline-block;
-      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       padding: 0.3rem 0.9rem;
       background: var(--bg3);
-      border: 1px solid var(--teal-dim);
+      border: 1px solid var(--pink-dim);
       border-radius: 20px;
       font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      color: var(--teal);
+      letter-spacing: 0.08em;
+      color: var(--pink);
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, box-shadow 0.2s;
     }
 
-    .license-badge:hover { background: var(--bg2); }
+    .license-badge:hover {
+      background: var(--bg2);
+      box-shadow: 0 0 10px var(--pink-glow);
+    }
 
+    /* ── BROWSE SECTION ── */
     .section-wrap {
       position: relative;
       z-index: 10;
-      max-width: 1080px;
+      max-width: 1040px;
       margin: 0 auto 5rem;
       padding: 0 2rem;
     }
 
     .section-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--text-dim);
       text-align: center;
       margin-bottom: 2.5rem;
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1rem;
     }
 
     .section-title::before,
@@ -166,109 +214,148 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(to right, transparent, var(--border));
     }
 
-    .group { margin-bottom: 2.5rem; }
+    .section-title::after {
+      background: linear-gradient(to left, transparent, var(--border));
+    }
+
+    /* ── GROUPS ── */
+    .group { margin-bottom: 2.25rem; }
 
     .group-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--rose);
+      color: var(--pink);
       margin-bottom: 0.9rem;
-      padding-left: 0.2rem;
+      padding: 0.2rem 0.8rem;
+      background: rgba(240,160,184,0.07);
+      border-radius: 20px;
+      border: 1px solid rgba(240,160,184,0.15);
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
-      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
     }
 
     .card {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 1rem 1.25rem;
+      gap: 0.85rem;
+      padding: 0.9rem 1.1rem;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 3px;
+      border-radius: 14px;
       text-decoration: none;
       color: var(--text);
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-      animation: rise 0.6s ease both;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      border-color: var(--teal-dim);
+      border-color: var(--pink-dim);
       background: var(--surface);
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3), 0 0 12px var(--pink-glow);
     }
 
-    .card-icon { font-size: 1.4rem; flex-shrink: 0; width: 2rem; text-align: center; }
+    .card-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      width: 1.9rem;
+      text-align: center;
+    }
 
     .card-name {
-      font-size: 0.85rem;
-      letter-spacing: 0.07em;
-      color: var(--text);
-      display: block;
-    }
-
-    .card-key {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-size: 0.84rem;
+      font-weight: 700;
+      font-size: 0.69rem;
+      letter-spacing: 0.1em;
       color: var(--teal-dim);
       display: block;
-      margin-top: 0.1rem;
+      margin-top: 0.05rem;
     }
 
+    .card-notation {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--pink-dim);
+      display: block;
+      margin-top: 0.15rem;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
     footer {
       position: relative;
       z-index: 10;
       text-align: center;
-      padding: 2.5rem 2rem;
-      border-top: 1px solid var(--border);
+      padding: 2rem;
       font-size: 0.7rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--text-dim);
     }
 
-    footer a { color: var(--teal-dim); text-decoration: none; }
-    footer a:hover { color: var(--teal); }
+    footer a { color: var(--pink-dim); text-decoration: none; }
+    footer a:hover { color: var(--pink); }
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
+    .footer-heart { color: var(--pink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
-      .about { padding: 1.75rem; margin: 2rem 1rem; }
+      .about { margin: 2rem 1rem; padding: 1.75rem; }
       .section-wrap { padding: 0 1rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- STARFIELD -->
+  <div class="stars" aria-hidden="true" id="stars"></div>
+
   <header>
-    <span class="clef">𝄞</span>
-    <h1>Sasani Music</h1>
-    <p class="tagline">Free Sheet Music &amp; Audio — For Every Player</p>
+    <div class="logo-wrap">
+      <div class="clef-bubble">𝄞</div>
+      <h1>Sasani <span>Music</span></h1>
+      <p class="tagline">Free sheet music &amp; audio for every player</p>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
   </header>
 
   <section class="about">
-    <h2>About this library</h2>
     <p>
       Sasani Music is a free, open library of sheet music arrangements paired with MP3 audio examples,
       built to make music more accessible to everyone. Spanning many genres and eras, the arrangements
-      here cover a wide variety of instruments — from tin whistles and recorders to kalimba and xiao.
+      here cover a wide variety of instruments—from tin whistles and recorders to kalimba and xiao.
+      Notation styles include standard staff notation, whistle tabs, Nakai tabs for Native American flute,
+      and jianpu (numbered notation).
     </p>
     <p>
-      All arrangements are free to use, share, and adapt for non-commercial purposes under the Creative Commons license below.
+      All arrangements are free to use, share, and adapt for non-commercial purposes.
     </p>
     <a class="license-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
-      ⊕ CC BY-NC-SA 4.0 License
+      🌸 CC BY-NC-SA 4.0 License
     </a>
   </section>
 
@@ -276,37 +363,37 @@
     <h2 class="section-title">Browse by Instrument</h2>
 
     <div class="group">
-      <p class="group-label">Whistles</p>
+      <p class="group-label">🪈 Whistles</p>
       <div class="cards">
         <a class="card" href="./arrangements/whistle-high-d/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">High D</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">High D</span><span class="card-notation">staff · tabs</span></span>
         </a>
         <a class="card" href="./arrangements/whistle-low-d/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low D</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low D</span><span class="card-notation">staff · tabs</span></span>
         </a>
         <a class="card" href="./arrangements/whistle-low-g/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low G</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low G</span><span class="card-notation">staff · tabs</span></span>
         </a>
         <a class="card" href="./arrangements/whistle-b/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B</span><span class="card-notation">staff · tabs</span></span>
         </a>
         <a class="card" href="./arrangements/whistle-b♭/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B♭</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B♭</span><span class="card-notation">staff · tabs</span></span>
         </a>
         <a class="card" href="./arrangements/whistle-g-mix/index.html">
           <span class="card-icon">🪈</span>
-          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">G Mixolydian</span></span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">G Mixolydian</span><span class="card-notation">staff · tabs</span></span>
         </a>
       </div>
     </div>
 
     <div class="group">
-      <p class="group-label">Recorders</p>
+      <p class="group-label">🎵 Recorders</p>
       <div class="cards">
         <a class="card" href="./arrangements/recorder-soprano/index.html">
           <span class="card-icon">🎵</span>
@@ -328,15 +415,15 @@
     </div>
 
     <div class="group">
-      <p class="group-label">World Flutes</p>
+      <p class="group-label">🎶 World Flutes</p>
       <div class="cards">
         <a class="card" href="./arrangements/naf-a/index.html">
           <span class="card-icon">🎶</span>
-          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">A</span></span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">A</span><span class="card-notation">staff · Nakai tabs</span></span>
         </a>
         <a class="card" href="./arrangements/naf-f♯/index.html">
           <span class="card-icon">🎶</span>
-          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">F♯</span></span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">F♯</span><span class="card-notation">staff · Nakai tabs</span></span>
         </a>
         <a class="card" href="./arrangements/bawu-f/index.html">
           <span class="card-icon">🎶</span>
@@ -350,7 +437,7 @@
     </div>
 
     <div class="group">
-      <p class="group-label">Ukulele</p>
+      <p class="group-label">🪕 Ukulele</p>
       <div class="cards">
         <a class="card" href="./arrangements/ukulele/index.html">
           <span class="card-icon">🪕</span>
@@ -368,21 +455,21 @@
     </div>
 
     <div class="group">
-      <p class="group-label">Other Instruments</p>
+      <p class="group-label">✨ Other Instruments</p>
       <div class="cards">
         <a class="card" href="./arrangements/harmonica-c/index.html">
           <span class="card-icon">🎸</span>
           <span class="card-text"><span class="card-name">Harmonica</span><span class="card-key">C</span></span>
         </a>
         <a class="card" href="./arrangements/kalimba-17C/index.html">
-          <span class="card-icon">✦</span>
+          <span class="card-icon">🎹</span>
           <span class="card-text"><span class="card-name">Kalimba</span><span class="card-key">17 Key — C</span></span>
         </a>
       </div>
     </div>
 
     <div class="group">
-      <p class="group-label">Ensemble</p>
+      <p class="group-label">🎼 Ensemble</p>
       <div class="cards">
         <a class="card" href="./arrangements/ensemble/index.html">
           <span class="card-icon">🎼</span>
@@ -394,11 +481,29 @@
   </div>
 
   <footer>
-    <p>Sasani Music &nbsp;·&nbsp;
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
-      &nbsp;·&nbsp; Free for all
+    <p>made with <span class="footer-heart">♡</span> · sasani music ·
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a>
     </p>
   </footer>
+
+  <script>
+    // Generate soft twinkling stars
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 1;
+      s.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        top: ${Math.random() * 100}%;
+        left: ${Math.random() * 100}%;
+        --d: ${(Math.random() * 3 + 2).toFixed(1)}s;
+        animation-delay: ${(Math.random() * 4).toFixed(1)}s;
+      `;
+      container.appendChild(s);
+    }
+  </script>
 
 </body>
 </html>
