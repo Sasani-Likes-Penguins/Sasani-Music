@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harmonica in C — Sasani Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0c14;
+      --bg2:        #141020;
+      --surface:    #1f1a30;
+      --border:     #2e2845;
+      --pink:       #f0a0b8;
+      --pink-dim:   #a05878;
+      --pink-glow:  rgba(240,160,184,0.15);
+      --teal:       #7dcfbf;
+      --teal-dim:   #4a9e90;
+      --text:       #e8e0f0;
+      --text-soft:  #a898c0;
+      --text-dim:   #6a5f80;
+      --star:       rgba(240,160,184,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .star { position: absolute; border-radius: 50%; background: var(--star); animation: twinkle var(--d, 3s) ease-in-out infinite alternate; }
+    @keyframes twinkle { from { opacity: 0.1; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.2); } }
+
+    nav {
+      position: relative; z-index: 10;
+      padding: 1.25rem 2rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; color: var(--text-dim);
+    }
+    nav a { color: var(--pink-dim); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--pink); }
+
+    main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .icon-bubble {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--pink-dim);
+      box-shadow: 0 0 24px var(--pink-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; margin: 0 auto 1.5rem;
+      animation: popIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.35rem 1rem;
+      background: rgba(240,160,184,0.08);
+      border: 1px solid var(--pink-dim);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pink);
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .message {
+      margin-top: 2rem;
+      max-width: 480px;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2.5rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.82rem;
+      color: var(--teal-dim);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      animation: fadeUp 0.7s ease 0.4s both;
+    }
+    .back-link:hover { border-color: var(--teal-dim); color: var(--teal); }
+
+    footer {
+      position: relative; z-index: 10; text-align: center;
+      padding: 2rem; border-top: 1px solid var(--border);
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);
+    }
+    footer a { color: var(--pink-dim); text-decoration: none; }
+    footer a:hover { color: var(--pink); }
+    .footer-heart { color: var(--pink); }
+
+    @keyframes popIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true" id="stars"></div>
+
+  <nav>
+    <a href="../../index.html">Sasani Music</a>
+    <span>›</span>
+    <span>Harmonica in C</span>
+  </nav>
+
+  <main>
+    <div class="icon-bubble">🎸</div>
+    <h1>Harmonica in C</h1>
+    <span class="coming-soon">✦ Coming Soon</span>
+    <p class="message">
+      Arrangements for harmonica in C are on their way. Check back soon!
+    </p>
+    <a class="back-link" href="../../index.html">← Back to all instruments</a>
+  </main>
+
+  <footer>
+    <p>made with <span class="footer-heart">♡</span> · <a href="../../index.html">sasani music</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a></p>
+  </footer>
+
+  <script>
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 1;
+      s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
+      container.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>

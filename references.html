@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>References — Sasani Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0c14;
+      --bg2:        #141020;
+      --bg3:        #1a1528;
+      --surface:    #1f1a30;
+      --border:     #2e2845;
+      --pink:       #f0a0b8;
+      --pink-dim:   #a05878;
+      --pink-glow:  rgba(240,160,184,0.15);
+      --teal:       #7dcfbf;
+      --teal-dim:   #4a9e90;
+      --lavender:   #b8a8d8;
+      --text:       #e8e0f0;
+      --text-soft:  #a898c0;
+      --text-dim:   #6a5f80;
+      --star:       rgba(240,160,184,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .star { position: absolute; border-radius: 50%; background: var(--star); animation: twinkle var(--d, 3s) ease-in-out infinite alternate; }
+    @keyframes twinkle { from { opacity: 0.1; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.2); } }
+
+    nav {
+      position: relative; z-index: 10;
+      padding: 1.25rem 2rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; color: var(--text-dim);
+    }
+    nav a { color: var(--pink-dim); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--pink); }
+
+    header { position: relative; z-index: 10; text-align: center; padding: 3.5rem 2rem 2rem; }
+
+    .icon-bubble {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--pink-dim);
+      box-shadow: 0 0 24px var(--pink-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; margin: 0 auto 1rem;
+      animation: popIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 700; color: var(--text); animation: fadeUp 0.7s ease 0.1s both; }
+    .subtitle { margin-top: 0.4rem; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); animation: fadeUp 0.7s ease 0.2s both; }
+
+    .content { position: relative; z-index: 10; max-width: 740px; margin: 2.5rem auto 5rem; padding: 0 2rem; }
+
+    .intro {
+      background: var(--surface); border: 1px solid var(--border);
+      border-top: 2px solid var(--teal); border-radius: 16px;
+      padding: 1.75rem 2rem; margin-bottom: 2.5rem;
+      font-size: 0.93rem; color: var(--text-soft);
+      animation: fadeUp 0.7s ease 0.25s both;
+    }
+
+    .ref-section { margin-bottom: 2.5rem; }
+
+    .ref-section-title {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 1rem; padding: 0.2rem 0.8rem;
+      background: rgba(240,160,184,0.07); border-radius: 20px;
+      border: 1px solid rgba(240,160,184,0.15);
+    }
+
+    .ref-entry {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 0.85rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .ref-entry:hover { border-color: var(--pink-dim); background: var(--surface); }
+
+    .ref-title { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; }
+    .ref-detail { font-size: 0.83rem; color: var(--text-soft); margin-bottom: 0.4rem; }
+    .ref-detail em { color: var(--lavender); font-style: italic; }
+    .ref-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; color: var(--teal-dim); text-decoration: none; transition: color 0.2s; }
+    .ref-link:hover { color: var(--teal); }
+    .used-for { margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-dim); font-style: italic; }
+
+    .shared-badge {
+      display: inline-block; margin-left: 0.5rem;
+      padding: 0.1rem 0.5rem; background: rgba(125,207,191,0.1);
+      border: 1px solid var(--teal-dim); border-radius: 10px;
+      font-size: 0.65rem; color: var(--teal-dim);
+      letter-spacing: 0.08em; vertical-align: middle; font-style: normal;
+    }
+
+    footer {
+      position: relative; z-index: 10; text-align: center;
+      padding: 2rem; border-top: 1px solid var(--border);
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);
+    }
+    footer a { color: var(--pink-dim); text-decoration: none; }
+    footer a:hover { color: var(--pink); }
+    .footer-heart { color: var(--pink); }
+
+    @keyframes popIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) { .content { padding: 0 1rem; } }
+  </style>
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true" id="stars"></div>
+
+  <nav>
+    <a href="./index.html">Sasani Music</a>
+    <span>›</span>
+    <span>References</span>
+  </nav>
+
+  <header>
+    <div class="icon-bubble">📚</div>
+    <h1>References</h1>
+    <p class="subtitle">Sources used across this site</p>
+  </header>
+
+  <div class="content">
+
+    <p class="intro">
+      The instrument descriptions on this site draw from the following verified sources.
+      Where possible, primary or peer-reviewed sources have been preferred over secondary ones.
+      Sources shared across multiple instrument pages are marked <em class="shared-badge">shared</em>.
+      This page is updated as new instrument pages are added.
+    </p>
+
+    <!-- RECORDERS — SHARED -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎵 Recorders — All</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Recorder (musical instrument) <em class="shared-badge">shared</em></p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Recorder_(musical_instrument)" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Recorder_(musical_instrument)</a>
+        <p class="used-for">Used for: general history of the recorder family; range and tuning across soprano, alto, tenor, and bass; Baroque revival; notation conventions.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Recorder Home Page <em class="shared-badge">shared</em></p>
+        <p class="ref-detail">Lander, N.S. <em>1996–2019. Comprehensive online resource on the recorder.</em></p>
+        <a class="ref-link" href="https://www.recorderhomepage.net" target="_blank" rel="noopener">↗ recorderhomepage.net</a>
+        <p class="used-for">Used for: history of the <em>flûte douce</em> and the 1670 French redesign; general recorder history.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">American Recorder Society <em class="shared-badge">shared</em></p>
+        <p class="ref-detail"><em>Professional organization for recorder players in North America.</em></p>
+        <a class="ref-link" href="https://www.americanrecorder.org" target="_blank" rel="noopener">↗ americanrecorder.org</a>
+        <p class="used-for">Used for: context on the recorder as an amateur and educational instrument.</p>
+      </div>
+    </div>
+
+    <!-- ALTO RECORDER -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎵 Alto Recorder</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Alto Recorder — Instrument Entry</p>
+        <p class="ref-detail">Grinnell College Musical Instrument Collection. <em>Grinnell College, Iowa.</em></p>
+        <a class="ref-link" href="https://omeka-s.grinnell.edu/s/MusicalInstruments/item/939" target="_blank" rel="noopener">↗ omeka-s.grinnell.edu/s/MusicalInstruments/item/939</a>
+        <p class="used-for">Used for: tone description—"intense, reedy, and penetrating"; range F4 to G6.</p>
+      </div>
+    </div>
+
+    <!-- SOPRANO RECORDER -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎵 Soprano Recorder</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Soprano Recorder</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Soprano_recorder" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Soprano_recorder</a>
+        <p class="used-for">Used for: range C5 to D7; Jacob van Eyck's <em>Der Fluyten Lust-hof</em> as the largest solo wind repertoire in European history.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Baroque Soprano Recorder — Instrument Entry</p>
+        <p class="ref-detail">Grinnell College Musical Instrument Collection. <em>Grinnell College, Iowa.</em></p>
+        <a class="ref-link" href="https://omeka-s.grinnell.edu/s/MusicalInstruments/item/938" target="_blank" rel="noopener">↗ omeka-s.grinnell.edu/s/MusicalInstruments/item/938</a>
+        <p class="used-for">Used for: association with supernatural, pastoral, love, or funeral scenes in Baroque opera; decline in the late 18th century.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Renaissance Soprano Recorder — Instrument Entry</p>
+        <p class="ref-detail">Grinnell College Musical Instrument Collection. <em>Grinnell College, Iowa.</em></p>
+        <a class="ref-link" href="https://omeka-s.grinnell.edu/s/MusicalInstruments/item/664" target="_blank" rel="noopener">↗ omeka-s.grinnell.edu/s/MusicalInstruments/item/664</a>
+        <p class="used-for">Used for: early history and Renaissance courtly context.</p>
+      </div>
+    </div>
+
+    <!-- TENOR RECORDER -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎵 Tenor Recorder</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Tenor Recorder</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Tenor_recorder" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Tenor_recorder</a>
+        <p class="used-for">Used for: pitch C4; range to D6; Quartflöte name; Renaissance consort origins; relationship to Baroque traverso repertoire.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Kunath Sigo Tenor Recorder</p>
+        <p class="ref-detail">Kunath Instrumentenbau. <em>Official product page.</em></p>
+        <a class="ref-link" href="https://www.kunath-recorder.de/en/sigo" target="_blank" rel="noopener">↗ kunath-recorder.de/en/sigo</a>
+        <p class="used-for">Used for: folded bore design; shorter body dimensions; angled headjoint and thumb rest; RESONA biopolymer material; collaboration with Geri Bollinger.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Orfeo ed Euridice</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Orfeo_ed_Euridice" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Orfeo_ed_Euridice</a>
+        <p class="used-for">Used for: context for Dance of the Blessed Spirits; Gluck's reform opera principles.</p>
+      </div>
+    </div>
+
+    <!-- BASS RECORDER -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎵 Bass Recorder</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Bass Recorder</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Bass_recorder" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Bass_recorder</a>
+        <p class="used-for">Used for: pitch F3; key mechanism for lowest note; bocal introduction around 1650; John Paul Jones's use on "Stairway to Heaven"; Ludwig Göransson's use in <em>The Mandalorian</em>.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Frans Brüggen</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Frans_Br%C3%BCggen" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Frans_Brüggen</a>
+        <p class="used-for">Used for: biographical details of Frans Brüggen (1934–2014); arranger credit for Allegretto (composer unknown).</p>
+      </div>
+    </div>
+
+    <!-- BAWU -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎶 Bawu</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Bawu</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Bawu" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Bawu</a>
+        <p class="used-for">Used for: general description; free-reed acoustics; cultural origins; naming convention.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Bawu — Instrument Entry</p>
+        <p class="ref-detail">Grinnell College Musical Instrument Collection. <em>Grinnell College, Iowa.</em></p>
+        <a class="ref-link" href="https://omeka-s.grinnell.edu/s/MusicalInstruments/item/1532" target="_blank" rel="noopener">↗ omeka-s.grinnell.edu/s/MusicalInstruments/item/1532</a>
+        <p class="used-for">Used for: fingering description; tone quality; idiomatic playing style.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Bawu — Pat Missin's Free Reed Reference</p>
+        <p class="ref-detail">Missin, Pat. <em>Comprehensive reference on free-reed instruments.</em></p>
+        <a class="ref-link" href="https://patmissin.com/history/bawu.html" target="_blank" rel="noopener">↗ patmissin.com/history/bawu.html</a>
+        <p class="used-for">Used for: Chinese naming convention; scale of an F bawu; underblowing; vertical and transverse variants.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Baltimore Recorders: Information about Bawu</p>
+        <p class="ref-detail">Baltimore Recorders. <em>Instrument information resource.</em></p>
+        <a class="ref-link" href="https://www.baltimorerecorders.org/html/instruments/bawu_sem.html" target="_blank" rel="noopener">↗ baltimorerecorders.org/html/instruments/bawu_sem.html</a>
+        <p class="used-for">Used for: tone description—"sweet and mournful."</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">江河水 (River of Sorrow)</p>
+        <p class="ref-detail">Wikipedia (Chinese), The Free Encyclopedia. Wikimedia Foundation.</p>
+        <a class="ref-link" href="https://zh.wikipedia.org/wiki/江河水" target="_blank" rel="noopener">↗ zh.wikipedia.org/wiki/江河水</a>
+        <p class="used-for">Used for: attribution of Wang Shilu and Zhu Guangqing as original composers; Huang Hai Huai's 1960s erhu arrangement; biographical note on Huang Hai Huai (1935–1967).</p>
+      </div>
+    </div>
+
+    <!-- KALIMBA -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎹 Kalimba</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Mbira</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Mbira" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Mbira</a>
+        <p class="used-for">Used for: origins of metal-tined lamellaphones in the Zambezi Valley; Hugh Tracey's adaptation and naming of the kalimba; tine acoustics and bell-like tone; alternating note layout.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Mbira — Encyclopaedia Britannica</p>
+        <p class="ref-detail">Encyclopaedia Britannica. <em>Peer-reviewed reference work.</em></p>
+        <a class="ref-link" href="https://www.britannica.com/art/mbira" target="_blank" rel="noopener">↗ britannica.com/art/mbira</a>
+        <p class="used-for">Used for: first European documentation of the instrument in 1586; cultural and ceremonial significance.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Is it Kalimba, Karimba, or Mbira?</p>
+        <p class="ref-detail">Kalimba Magic. <em>Specialist kalimba resource.</em></p>
+        <a class="ref-link" href="https://www.kalimbamagic.com/blog/item/kalimba-kalimba-or-mbira" target="_blank" rel="noopener">↗ kalimbamagic.com/blog/item/kalimba-kalimba-or-mbira</a>
+        <p class="used-for">Used for: the name "kalimba" as a Bantu word meaning "little music"; relationship between kalimba, karimba, and mbira family instruments.</p>
+      </div>
+    </div>
+
+    <!-- NATIVE AMERICAN FLUTE -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎶 Native American Flute</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Native American Flute</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Native_American_flute" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Native_American_flute</a>
+        <p class="used-for">Used for: two-chamber instrument design; pentatonic character; six-hole modern standard; Nakai tablature; late 20th century revival; Doc Tate Nevaquaya and R. Carlos Nakai.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">R. Carlos Nakai</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/R._Carlos_Nakai" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/R._Carlos_Nakai</a>
+        <p class="used-for">Used for: biographical details; development of Nakai tablature; role in popularising the Native American flute.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Native American Flute — Spiritual and Ceremonial Use</p>
+        <p class="ref-detail">Leeburman.com. <em>Specialist Native American flute resource.</em></p>
+        <a class="ref-link" href="https://www.leeburman.com/native-american-flute-history" target="_blank" rel="noopener">↗ leeburman.com/native-american-flute-history</a>
+        <p class="used-for">Used for: sacred and ceremonial role; use by shamans and curers; healing ceremonies and spiritual gatherings.</p>
+      </div>
+    </div>
+
+    <!-- UKULELE -->
+    <div class="ref-section">
+      <p class="ref-section-title">🪕 Ukulele — Bass &amp; Low G</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Ukulele <em class="shared-badge">shared</em></p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Ukulele" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Ukulele</a>
+        <p class="used-for">Used for: Portuguese origins; machete, cavaquinho, and rajão ancestry; Hawaiian history; reentrant vs linear tuning; low-G tuning range extension.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">History of the U•BASS®</p>
+        <p class="ref-detail">Kala Brand Music Co. <em>Official history page.</em></p>
+        <a class="ref-link" href="https://kalabrand.com/blogs/u-bass-news/u-bass-timeline" target="_blank" rel="noopener">↗ kalabrand.com/blogs/u-bass-news/u-bass-timeline</a>
+        <p class="used-for">Used for: introduction of the bass ukulele in 2009; design by Owen Holt.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">What is a U•BASS®?</p>
+        <p class="ref-detail">Kala Brand Music Co. <em>Official product explainer.</em></p>
+        <a class="ref-link" href="https://kalabrand.com/blogs/home/ubass-explained" target="_blank" rel="noopener">↗ kalabrand.com/blogs/home/ubass-explained</a>
+        <p class="used-for">Used for: tone description—"deep, booming, and round"; upright bass comparison; light-tension string and pickup design.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Low G Tuning — What It Is and Why You'd Want It</p>
+        <p class="ref-detail">Ukulele Magazine / Got A Ukulele. <em>Specialist ukulele resource.</em></p>
+        <a class="ref-link" href="https://www.gotaukulele.com/2011/10/low-g-tuning-on-ukulele.html" target="_blank" rel="noopener">↗ gotaukulele.com/2011/10/low-g-tuning-on-ukulele.html</a>
+        <p class="used-for">Used for: low-G as linear tuning; five-note range extension; warmer fuller tone; suitability for fingerpicking; soprano ukulele string limitations.</p>
+      </div>
+    </div>
+
+    <!-- GAME MUSIC -->
+    <div class="ref-section">
+      <p class="ref-section-title">🎮 Video Game Music</p>
+
+      <div class="ref-entry">
+        <p class="ref-title">Music of Final Fantasy X</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Music_of_Final_Fantasy_X" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Music_of_Final_Fantasy_X</a>
+        <p class="used-for">Used for: Yuna's Theme composer credit (Nobuo Uematsu); original composition context; Uematsu's account of writing the theme originally for a flutist's recital.</p>
+      </div>
+
+      <div class="ref-entry">
+        <p class="ref-title">Nobuo Uematsu</p>
+        <p class="ref-detail">Wikipedia, The Free Encyclopedia. Wikimedia Foundation. <em>Last reviewed 2025.</em></p>
+        <a class="ref-link" href="https://en.wikipedia.org/wiki/Nobuo_Uematsu" target="_blank" rel="noopener">↗ en.wikipedia.org/wiki/Nobuo_Uematsu</a>
+        <p class="used-for">Used for: biographical details; career history at Square; Final Fantasy series contributions.</p>
+      </div>
+    </div>
+
+    <!-- STYLE NOTE -->
+    <div class="ref-section">
+      <p class="ref-section-title">ℹ️ General Style Note</p>
+      <div class="ref-entry">
+        <p class="ref-title">Style Guide — Em Dashes</p>
+        <p class="ref-detail">Strunk, W. &amp; White, E.B. <em>The Elements of Style.</em> Macmillan, 1959 (and subsequent editions).</p>
+        <p class="used-for">Em dashes on this site follow the American convention of no spaces on either side—as recommended by Strunk &amp; White.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>made with <span class="footer-heart">♡</span> · <a href="./index.html">sasani music</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a></p>
+  </footer>
+
+  <script>
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 1;
+      s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
+      container.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>

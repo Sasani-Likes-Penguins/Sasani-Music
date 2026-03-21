@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bawu in F — Sasani Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0c14;
+      --bg2:        #141020;
+      --bg3:        #1a1528;
+      --surface:    #1f1a30;
+      --border:     #2e2845;
+      --pink:       #f0a0b8;
+      --pink-dim:   #a05878;
+      --pink-glow:  rgba(240,160,184,0.15);
+      --teal:       #7dcfbf;
+      --teal-dim:   #4a9e90;
+      --lavender:   #b8a8d8;
+      --text:       #e8e0f0;
+      --text-soft:  #a898c0;
+      --text-dim:   #6a5f80;
+      --star:       rgba(240,160,184,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .star { position: absolute; border-radius: 50%; background: var(--star); animation: twinkle var(--d, 3s) ease-in-out infinite alternate; }
+    @keyframes twinkle { from { opacity: 0.1; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.2); } }
+
+    nav {
+      position: relative; z-index: 10;
+      padding: 1.25rem 2rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; color: var(--text-dim);
+    }
+    nav a { color: var(--pink-dim); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--pink); }
+
+    header { position: relative; z-index: 10; text-align: center; padding: 3.5rem 2rem 2.5rem; }
+
+    .icon-bubble {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--pink-dim);
+      box-shadow: 0 0 24px var(--pink-glow), inset 0 0 16px rgba(240,160,184,0.05);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem; margin: 0 auto 1rem;
+      animation: popIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: var(--text); animation: fadeUp 0.7s ease 0.1s both; }
+    .subtitle { margin-top: 0.4rem; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal-dim); animation: fadeUp 0.7s ease 0.2s both; }
+
+    .instrument-about {
+      position: relative; z-index: 10;
+      max-width: 700px; margin: 2.5rem auto;
+      padding: 2rem 2.5rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-top: 2px solid var(--teal); border-radius: 16px;
+      animation: fadeUp 0.7s ease 0.25s both;
+    }
+    .instrument-about h2 { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dim); margin-bottom: 0.75rem; }
+    .instrument-about p { font-size: 0.95rem; color: var(--text-soft); }
+    .ref-link { display: inline-block; margin-top: 0.9rem; font-size: 0.72rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.08em; }
+    .ref-link:hover { color: var(--pink); }
+
+    .section-wrap { position: relative; z-index: 10; max-width: 820px; margin: 0 auto 5rem; padding: 0 2rem; }
+
+    .genre-group { margin-bottom: 2.5rem; }
+
+    .genre-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 1rem; padding: 0.2rem 0.8rem;
+      background: rgba(240,160,184,0.07); border-radius: 20px;
+      border: 1px solid rgba(240,160,184,0.15);
+    }
+
+    .piece {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 0.85rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .piece:hover { border-color: var(--pink-dim); background: var(--surface); }
+
+    .piece-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;
+    }
+    .piece-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .piece-composer { font-size: 0.82rem; color: var(--text-soft); }
+    .piece-composer a { color: var(--teal-dim); text-decoration: none; transition: color 0.2s; }
+    .piece-composer a:hover { color: var(--teal); }
+
+    .controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+
+    .btn-pdf {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(240,160,184,0.08); border: 1px solid var(--pink-dim);
+      border-radius: 20px; font-size: 0.75rem; font-family: inherit;
+      color: var(--pink); text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s; white-space: nowrap;
+    }
+    .btn-pdf:hover { background: rgba(240,160,184,0.16); box-shadow: 0 0 10px var(--pink-glow); }
+
+    audio { height: 32px; flex: 1; min-width: 200px; accent-color: var(--pink); }
+
+    footer {
+      position: relative; z-index: 10; text-align: center;
+      padding: 2rem; border-top: 1px solid var(--border);
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);
+    }
+    footer a { color: var(--pink-dim); text-decoration: none; }
+    footer a:hover { color: var(--pink); }
+    .footer-heart { color: var(--pink); }
+
+    @keyframes popIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) {
+      .instrument-about { margin: 2rem 1rem; padding: 1.5rem; }
+      .section-wrap { padding: 0 1rem; }
+      .piece-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" aria-hidden="true" id="stars"></div>
+
+  <nav>
+    <a href="../../index.html">Sasani Music</a>
+    <span>›</span>
+    <span>Bawu in F</span>
+  </nav>
+
+  <header>
+    <div class="icon-bubble">🎶</div>
+    <h1>Bawu in F</h1>
+    <p class="subtitle">Staff notation · Range A3–D5</p>
+  </header>
+
+  <section class="instrument-about">
+    <h2>About this instrument</h2>
+    <p>
+      The bawu (巴乌) is a free-reed instrument originating among the minority peoples of Yunnan
+      province in southwest China—particularly the Hani, Yi, Dai, and Hmong. Despite its flute-like
+      appearance it produces sound through a small metal reed, much like a harmonica. It can be
+      played either horizontally or vertically. Its tone is sweet and mournful, with a rich buzzing
+      quality in the lower register that becomes progressively smoother higher up. Players make
+      expressive use of pitch bends, glides, and vibrato. The bawu has become a standard instrument
+      throughout China and is frequently heard in film scores—most notably in <em>Crouching Tiger,
+      Hidden Dragon</em>. This bawu is in F, meaning F4 is the note produced with the three upper
+      holes and the thumb hole covered, following Chinese convention. The instrument has six front
+      holes and a thumb hole; its standard range is C4 to D5, with A3 accessible by underblowing.
+    </p>
+    <a class="ref-link" href="../../references.html">Sources &amp; references →</a>
+  </section>
+
+  <div class="section-wrap">
+
+    <!-- TRADITIONAL / FOLK -->
+    <div class="genre-group">
+      <p class="genre-label">🌿 Traditional &amp; Folk</p>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">In a Glade</span>
+          <span class="piece-composer">Ukrainian traditional, arr. &amp; perf. <a href="https://en.wikipedia.org/wiki/Milla_Jovovich" target="_blank" rel="noopener">Milla Jovovich</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./in-a-glade_milla-jovovich_traditional_bawu-f.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./in-a-glade_milla-jovovich_traditional_bawu-f.mp3"></audio>
+        </div>
+      </div>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">夕阳箫鼓 (Xunyin in Moonlight)</span>
+          <span class="piece-composer">Chinese traditional</span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./夕阳箫鼓_xunyin-in-moonlight_bawu-f.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./夕阳箫鼓_xunyin-in-moonlight_bawu-f.mp3"></audio>
+        </div>
+      </div>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">江河水 (River of Sorrow)</span>
+          <span class="piece-composer">
+            Wang Shilu &amp; Zhu Guangqing,
+            arr. <a href="https://en.wikipedia.org/wiki/Erhu#Notable_erhu_players" target="_blank" rel="noopener">Huang Hai Huai</a>
+          </span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./江河水 (river of sorrow)_bawu-f.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./江河水 (river of sorrow)_bawu-f.mp3"></audio>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 20TH CENTURY / SOUNDTRACK -->
+    <div class="genre-group">
+      <p class="genre-label">🎬 20th Century &amp; Soundtrack</p>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">Gabriel's Oboe</span>
+          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Ennio_Morricone" target="_blank" rel="noopener">Ennio Morricone</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./gabriels-oboe_ennio-morricone_bawu-f.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./gabriels-oboe_ennio-morricone_bawu-f.mp3"></audio>
+        </div>
+      </div>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">Oogway Ascends</span>
+          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Hans_Zimmer" target="_blank" rel="noopener">Hans Zimmer</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./oogway-ascends_hans-zimmer_bawu-F.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./oogway-ascends_hans-zimmer_bawu-F.mp3"></audio>
+        </div>
+      </div>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">Colors of the Wind</span>
+          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Alan_Menken" target="_blank" rel="noopener">Alan Menken</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./pocahontas_colors_of_the_wind-bawu-F.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./pocahontas_colors_of_the_wind-bawu-F.mp3"></audio>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- POP / ROCK -->
+    <div class="genre-group">
+      <p class="genre-label">🎸 Pop &amp; Rock</p>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">Foolish Games</span>
+          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Jewel_(singer)" target="_blank" rel="noopener">Jewel</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./foolish_games-jewel_kilcher_bawu-f.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./foolish_games-jewel_kilcher_bawu-f.mp3"></audio>
+        </div>
+      </div>
+
+      <div class="piece">
+        <div class="piece-header">
+          <span class="piece-title">Hurt</span>
+          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Nine_Inch_Nails" target="_blank" rel="noopener">Nine Inch Nails</a> / <a href="https://en.wikipedia.org/wiki/Johnny_Cash" target="_blank" rel="noopener">Johnny Cash</a></span>
+        </div>
+        <div class="controls">
+          <a class="btn-pdf" href="./hurt-NiN-Johnny-Cash_bawu-F.pdf" target="_blank">📄 Sheet Music</a>
+          <audio controls src="./hurt-NiN-Johnny-Cash_bawu-F.mp3"></audio>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p>made with <span class="footer-heart">♡</span> · <a href="../../index.html">sasani music</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a></p>
+  </footer>
+
+  <script>
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 1;
+      s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
+      container.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
