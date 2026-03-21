@@ -323,6 +323,149 @@
       .about { margin: 2rem 1rem; padding: 1.75rem; }
       .section-wrap { padding: 0 1rem; }
     }
+
+    /* ── COMPOSITIONS SECTION ── */
+    .compositions {
+      position: relative;
+      z-index: 10;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      padding: 2rem 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--lavender);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .compositions::before {
+      content: '✦';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      padding: 0 0.75rem;
+      color: var(--lavender);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .compositions h2 {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+
+    .compositions p {
+      font-size: 0.93rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      background: rgba(184,168,216,0.08);
+      border: 1px solid rgba(184,168,216,0.3);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--lavender);
+    }
+
+    /* ── FLOATING NAV ── */
+    .nav-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+    }
+
+    .nav-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--pink-dim);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 16px var(--pink-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      color: var(--pink);
+      user-select: none;
+    }
+
+    .nav-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 20px var(--pink-glow);
+    }
+
+    .nav-menu {
+      position: absolute;
+      bottom: 62px;
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.75rem 0;
+      min-width: 220px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-menu.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(240,160,184,0.07);
+      color: var(--pink);
+    }
+
+    .nav-menu .nav-icon {
+      font-size: 1rem;
+      width: 1.4rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .nav-menu hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0.4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .nav-float { bottom: 1.25rem; right: 1.25rem; }
+      .compositions { margin: 0 1rem 2rem; padding: 1.75rem; }
+    }
   </style>
 </head>
 <body>
@@ -359,10 +502,19 @@
     </a>
   </section>
 
+  <section class="compositions">
+    <h2>Original Compositions</h2>
+    <p>
+      Original works by Sasani are coming soon—pieces composed specifically for the instruments
+      featured in this library, free to play and share under the same CC BY-NC-SA 4.0 license.
+    </p>
+    <span class="coming-soon-badge">✦ Coming Soon</span>
+  </section>
+
   <div class="section-wrap">
     <h2 class="section-title">Browse by Instrument</h2>
 
-    <div class="group">
+    <div class="group" id="nav-whistles">
       <p class="group-label">🪈 Whistles</p>
       <div class="cards">
         <a class="card" href="./arrangements/whistle-high-d/index.html">
@@ -389,7 +541,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-recorders">
       <p class="group-label">🎵 Recorders</p>
       <div class="cards">
         <a class="card" href="./arrangements/recorder-soprano/index.html">
@@ -411,7 +563,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-naf">
       <p class="group-label">🎶 Native American Flute</p>
       <div class="cards">
         <a class="card" href="./arrangements/naf-a/index.html">
@@ -425,7 +577,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-chinese">
       <p class="group-label">🎶 Chinese Instruments</p>
       <div class="cards">
         <a class="card" href="./arrangements/bawu-f/index.html">
@@ -439,7 +591,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-world">
       <p class="group-label">🌍 World Flutes</p>
       <div class="cards">
         <div class="card" style="opacity:0.5; cursor:default; pointer-events:none;">
@@ -449,7 +601,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-ukulele">
       <p class="group-label">🪕 Ukulele</p>
       <div class="cards">
 
@@ -464,12 +616,12 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-other">
       <p class="group-label">✨ Other Instruments</p>
       <div class="cards">
         <a class="card" href="./arrangements/harmonica-c/index.html">
           <span class="card-icon">🎸</span>
-          <span class="card-text"><span class="card-name">Harmonica</span><span class="card-key">C</span></span>
+          <span class="card-text"><span class="card-name">Chromatic Harmonica</span><span class="card-key">C major</span></span>
         </a>
         <a class="card" href="./arrangements/kalimba-17C/index.html">
           <span class="card-icon">🎹</span>
@@ -478,7 +630,7 @@
       </div>
     </div>
 
-    <div class="group">
+    <div class="group" id="nav-ensemble">
       <p class="group-label">🎼 Ensemble</p>
       <div class="cards">
         <a class="card" href="./arrangements/ensemble/index.html">
@@ -490,6 +642,22 @@
 
   </div>
 
+  <!-- FLOATING NAV -->
+  <div class="nav-float">
+    <div class="nav-menu" id="navMenu">
+      <a href="#nav-whistles"><span class="nav-icon">🪈</span>Whistles</a>
+      <a href="#nav-recorders"><span class="nav-icon">🎵</span>Recorders</a>
+      <a href="#nav-naf"><span class="nav-icon">🎶</span>Native American Flute</a>
+      <a href="#nav-chinese"><span class="nav-icon">🎶</span>Chinese Instruments</a>
+      <a href="#nav-world"><span class="nav-icon">🌍</span>World Flutes</a>
+      <hr/>
+      <a href="#nav-ukulele"><span class="nav-icon">🪕</span>Ukulele</a>
+      <a href="#nav-other"><span class="nav-icon">✨</span>Other Instruments</a>
+      <a href="#nav-ensemble"><span class="nav-icon">🎼</span>Ensemble</a>
+    </div>
+    <div class="nav-toggle" id="navToggle" role="button" aria-label="Navigate to section">🎵</div>
+  </div>
+
   <footer>
     <p>made with <span class="footer-heart">♡</span> · sasani music ·
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a>
@@ -497,22 +665,37 @@
   </footer>
 
   <script>
-    // Generate soft twinkling stars
+    // Starfield
     const container = document.getElementById('stars');
     for (let i = 0; i < 60; i++) {
       const s = document.createElement('div');
       s.className = 'star';
       const size = Math.random() * 2.5 + 1;
-      s.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        top: ${Math.random() * 100}%;
-        left: ${Math.random() * 100}%;
-        --d: ${(Math.random() * 3 + 2).toFixed(1)}s;
-        animation-delay: ${(Math.random() * 4).toFixed(1)}s;
-      `;
+      s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
       container.appendChild(s);
     }
+
+    // Floating nav
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      toggle.textContent = menu.classList.contains('open') ? '✕' : '🎵';
+    });
+    // Close when a link is clicked
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.textContent = '🎵';
+      });
+    });
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-float')) {
+        menu.classList.remove('open');
+        toggle.textContent = '🎵';
+      }
+    });
   </script>
 
 </body>
