@@ -9,6 +9,7 @@ desktop.ini
 *.mscz,*
 *.mscbackup
 *.autosave
+*.bat
 
 # Temporary or exported audio formats you don’t want versioned
 *.wav
