@@ -1,1 +1,0 @@
-Get-ChildItem -Name | Where-Object { $_ -notmatch '\.(html|txt|ps1|json)$' } | Out-File -FilePath filelist.txt -Encoding utf8
