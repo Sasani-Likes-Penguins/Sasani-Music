@@ -1,0 +1,310 @@
+{
+  "instrument": {
+    "name": "Alto Recorder",
+    "subtitle": "Staff notation · Standard fingering",
+    "icon": "🎵",
+    "description": "The recorder is first documented in Europe in the Middle Ages, and continued to enjoy wide popularity in the Renaissance and Baroque periods. Around 1670, a new type of recorder appeared in France—the flûte douce or \"sweet flute\"—what today would be called an alto in F. In contrast to its predecessor, it was full and resonant in the low register. The alto is the third highest pitched member of the recorder family, tuned in F with a range of F4 to G6. It was voiced to produce an intense, reedy, and penetrating tone of considerable carrying power and expressiveness. It was revived in the twentieth century as part of the historically informed performance movement, and became a popular amateur and educational instrument."
+  },
+  "genres": [
+    {
+      "id": "medieval-renaissance",
+      "label": "🏰 Medieval & Renaissance"
+    },
+    {
+      "id": "baroque",
+      "label": "🎻 Baroque"
+    },
+    {
+      "id": "classical-romantic",
+      "label": "🌹 Classical & Romantic"
+    },
+    {
+      "id": "traditional-folk",
+      "label": "🌿 Traditional & Folk"
+    },
+    {
+      "id": "soundtrack",
+      "label": "🎬 20th Century & Soundtrack"
+    },
+    {
+      "id": "pop-rock",
+      "label": "🎸 Pop & Rock"
+    }
+  ],
+  "pieces": [
+    {
+      "title": "Doen Daphne d'over Schoone Maeght",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_alto_recorder_solo.pdf",
+        "mp3": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_alto_recorder_solo.mp3"
+      }
+    },
+    {
+      "title": "Pavan Lachrymae",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "pavaen-lachrymae_JvEyck_recorder-alto.pdf",
+        "mp3": "pavaen-lachrymae_JvEyck_recorder-alto.mp3"
+      }
+    },
+    {
+      "title": "Arioso from Cantata BWV 156",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "arioso_from_cantata_bwvno156-bach-js-alto_recorder.pdf",
+        "mp3": "arioso_from_cantata_bwv-no-156-bach-js-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Unaccompanied Cello Suite Prelude BWV 1007",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "unaccompanied-cello-suite_js-bach_prelude1-BWV1007-alto.pdf",
+        "mp3": "unaccompanied-cello-suite_js-bach_prelude1-BWV1007-alto.mp3"
+      }
+    },
+    {
+      "title": "Dido's Lament",
+      "genre": "baroque",
+      "composer": "Henry Purcell",
+      "composerUrl": "https://en.wikipedia.org/wiki/Henry_Purcell",
+      "files": {
+        "staff": "didos_lament-henry_purcell-alto_recorder.pdf",
+        "mp3": "didos_lament-henry_purcell-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Ave Maria Op. 52 No. 9",
+      "genre": "classical-romantic",
+      "composer": "Schubert",
+      "composerUrl": "https://en.wikipedia.org/wiki/Franz_Schubert",
+      "files": {
+        "staff": "ave_maria-schubert_opus_52-no-9_alto_recorder.pdf",
+        "mp3": "ave_maria-schubert_opus_52-no-9_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Habanera",
+      "genre": "classical-romantic",
+      "composer": "Bizet",
+      "composerUrl": "https://en.wikipedia.org/wiki/Georges_Bizet",
+      "files": {
+        "staff": "habanera-alto-recorder-solo-bizet.pdf",
+        "mp3": "habanera-alto-recorder-solo-bizet.mp3"
+      }
+    },
+    {
+      "title": "Evocación (Suite del Recuerdo No. 1)",
+      "genre": "classical-romantic",
+      "composer": "José Luis Merlín",
+      "composerUrl": "https://joseluismerlin.com",
+      "files": {
+        "staff": "evocación_suite-del-recuerdo-no-1_josé-luis-merlin-alto_recorder.pdf",
+        "mp3": "evocación_suite-del-recuerdo-no-1_josé-luis-merlin-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "My Mother Told Me",
+      "genre": "traditional-folk",
+      "traditional": "Norse/Viking traditional",
+      "files": {
+        "staff": "my-mother-told-me_alto-rec.pdf",
+        "mp3": "my-mother-told-me_alto-rec.mp3"
+      },
+      "variants": [
+        {
+          "label": "Extended version",
+          "files": {
+            "staff": "my-mother-told-me_extended_alto-rec.pdf",
+            "mp3": "my-mother-told-me_extended_rec-alto.mp3"
+          }
+        }
+      ]
+    },
+    {
+      "title": "In a Glade",
+      "genre": "traditional-folk",
+      "traditional": "Ukrainian traditional",
+      "files": {
+        "staff": "in_a_glade-ukrainian_alto_recorder.pdf",
+        "mp3": "in_a_glade-ukrainian_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Anile Anile Vaaa Vaa Vaa",
+      "genre": "traditional-folk",
+      "traditional": "Indian traditional",
+      "files": {
+        "staff": "anile-anile-vaaa-vaa-vaa_trad-indian_alto-rec.pdf",
+        "mp3": "anile-anile-vaaa-vaa-vaa_trad-indian_alto-rec.mp3"
+      }
+    },
+    {
+      "title": "夕阳箫鼓 (Xunyin in Moonlight)",
+      "genre": "traditional-folk",
+      "traditional": "Chinese traditional",
+      "files": {
+        "staff": "夕阳箫鼓_xunyin-in-moonlight_alto-rec.pdf",
+        "mp3": "夕阳箫鼓_xunyin-in-moonlight_alto-rec.mp3"
+      }
+    },
+    {
+      "title": "Gabriel's Oboe",
+      "genre": "soundtrack",
+      "composer": "Ennio Morricone",
+      "composerUrl": "https://en.wikipedia.org/wiki/Ennio_Morricone",
+      "files": {
+        "staff": "gabriels_oboe-ennio_morricone-alto_recorder.pdf",
+        "mp3": "gabriels_oboe-ennio_morricone-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Oogway Ascends",
+      "genre": "soundtrack",
+      "composer": "Hans Zimmer",
+      "composerUrl": "https://en.wikipedia.org/wiki/Hans_Zimmer",
+      "files": {
+        "staff": "oogway-ascends_hans-zimmer_recorder-alto.pdf",
+        "mp3": "oogway-ascends_hans-zimmer_recorder-alto.mp3"
+      }
+    },
+    {
+      "title": "The Last of the Mohicans Theme",
+      "genre": "soundtrack",
+      "files": {
+        "staff": "the_last_of_the_mohicans_theme-alto_recorder.pdf",
+        "mp3": "the_last_of_the_mohicans_theme-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Colors of the Wind",
+      "genre": "soundtrack",
+      "composer": "Alan Menken",
+      "composerUrl": "https://en.wikipedia.org/wiki/Alan_Menken",
+      "files": {
+        "staff": "pocahontas_colors_of_the_wind-alto_recorder.pdf",
+        "mp3": "pocahontas_colors_of_the_wind-alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "The Sleeping Tune (with Extended Variations)",
+      "genre": "soundtrack",
+      "composer": "Gordon Duncan",
+      "composerUrl": "https://en.wikipedia.org/wiki/Gordon_Duncan",
+      "files": {
+        "staff": "the_sleeping_tune-gordon_duncan-with_ext_variations-alto-rec.pdf",
+        "mp3": "the_sleeping_tune-gordon_duncan-with_ext_variations-alto-rec.mp3"
+      }
+    },
+    {
+      "title": "Sweet Child O' Mine",
+      "genre": "pop-rock",
+      "composer": "Guns N' Roses",
+      "composerUrl": "https://en.wikipedia.org/wiki/Guns_N%27_Roses",
+      "files": {
+        "staff": "Guns_n_Roses_-_Sweet_Child_O_Mine_alto-rec.pdf",
+        "mp3": "Guns_n_Roses_-_Sweet_Child_O_Mine_alto-rec.mp3"
+      }
+    },
+    {
+      "title": "Space Oddity",
+      "genre": "pop-rock",
+      "composer": "David Bowie",
+      "composerUrl": "https://en.wikipedia.org/wiki/David_Bowie",
+      "files": {
+        "staff": "space_oddity-david_bowie_alto-recorder.pdf",
+        "mp3": "space_oddity-david_bowie_alto-recorder.mp3"
+      }
+    },
+    {
+      "title": "Nights in White Satin",
+      "genre": "pop-rock",
+      "composer": "Moody Blues",
+      "composerUrl": "https://en.wikipedia.org/wiki/The_Moody_Blues",
+      "files": {
+        "staff": "nights-in-white-satin_moody-blues_alto_recorder_solo.pdf",
+        "mp3": "nights-in-white-satin_moody-blues_alto_recorder_solo.mp3"
+      }
+    },
+    {
+      "title": "Hurt",
+      "genre": "pop-rock",
+      "composer": "Nine Inch Nails",
+      "composerUrl": "https://en.wikipedia.org/wiki/Nine_Inch_Nails",
+      "performer": "Johnny Cash",
+      "performerUrl": "https://en.wikipedia.org/wiki/Johnny_Cash",
+      "files": {
+        "staff": "hurt-NiN-Johnny-Cash_recorder-alto.pdf",
+        "mp3": "hurt-NiN-Johnny-Cash_recorder-alto.mp3"
+      }
+    },
+    {
+      "title": "Wicked Game",
+      "genre": "pop-rock",
+      "composer": "Chris Isaak",
+      "composerUrl": "https://en.wikipedia.org/wiki/Chris_Isaak",
+      "files": {
+        "staff": "wicked-game_chris-isaak_alto-recorder.pdf",
+        "mp3": "wicked-game_chris-isaak_alto-recorder.mp3"
+      }
+    },
+    {
+      "title": "Foolish Games",
+      "genre": "pop-rock",
+      "composer": "Jewel",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jewel_(singer)",
+      "files": {
+        "staff": "foolish_games-jewel_kilcher_alto_recorder.pdf",
+        "mp3": "foolish_games-jewel_kilcher_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Ocean Eyes",
+      "genre": "pop-rock",
+      "composer": "Billie Eilish",
+      "composerUrl": "https://en.wikipedia.org/wiki/Billie_Eilish",
+      "files": {
+        "staff": "ocean_eyes-billie_eilish_alto_recorder.pdf",
+        "mp3": "ocean_eyes-billie_eilish_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "The Sound of Silence",
+      "genre": "pop-rock",
+      "composer": "Paul Simon",
+      "composerUrl": "https://en.wikipedia.org/wiki/Paul_Simon",
+      "files": {
+        "staff": "the_sound_of_silence-paul_simon_alto_recorder.pdf",
+        "mp3": "the_sound_of_silence-paul_simon_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Time After Time",
+      "genre": "pop-rock",
+      "composer": "Cyndi Lauper",
+      "composerUrl": "https://en.wikipedia.org/wiki/Cyndi_Lauper",
+      "files": {
+        "staff": "time_after_time-cyndi_lauper_alto_recorder.pdf",
+        "mp3": "time_after_time-cyndi_lauper_alto_recorder.mp3"
+      }
+    },
+    {
+      "title": "Silent Night",
+      "genre": "traditional-folk",
+      "traditional": "Traditional carol",
+      "files": {
+        "staff": "silent_night-alto-rec.pdf",
+        "mp3": "silent_night-alto-rec.mp3"
+      }
+    }
+  ]
+}
