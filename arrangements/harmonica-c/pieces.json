@@ -1,0 +1,25 @@
+{
+  "instrument": {
+    "name": "Chromatic Harmonic in C",
+    "subtitle": "Staff and tab notation",
+    "icon": "🎶",
+    "description": "The Native American flute is a duct flute unique to North America, distinguished by its two-chamber design: a slow air chamber collects the player's breath, which is then directed by an external block across a sound hole to produce tone—requiring no embouchure. In many Native American traditions the flute is considered sacred, used by shamans and curers as a tool for connecting with the spirit world. It was played in healing ceremonies, spiritual gatherings, and tribal meetings, with its sound believed to carry the ability to heal the body and mind. Key figures such as Doc Tate Nevaquaya and R. Carlos Nakai were instrumental in reviving the instrument in the mid-to-late 20th century, bringing it to wider audiences. Nakai also developed Nakai tablature—a notation system using finger positions rather than absolute pitches, making music transferable across flutes of different keys. Its tone is warm and rich, well suited to slow melodic lines and improvisation. Although modern Native American flutes typically have six holes, they are still considered pentatonic instruments—traditional music was composed for five-hole flutes, and the sixth hole is a later addition that extends the range without changing the instrument's fundamental character. Cross-fingering allows players to access chromatic notes beyond the natural scale. This flute is in A, meaning its natural pentatonic scale is A minor."
+  },
+  "genres": [
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "Nothing Compares 2 U",
+      "genre": "pop-rock",
+      "composer": "Prince",
+      "composerUrl": "https://en.wikipedia.org/wiki/Prince_(musician)",
+      "performer": "Sinéad O'Connor",
+      "performerUrl": "https://en.wikipedia.org/wiki/Sin%C3%A9ad_O%27Connor",
+      "files": {
+        "staff": "nothing_compares_2_u-prince_sinead_oconnor_naf_in_a.pdf",
+        "mp3": "nothing_compares_2_u-prince_sinead_oconnor_naf_in_a.mp3"
+      }
+    }
+  ]
+}

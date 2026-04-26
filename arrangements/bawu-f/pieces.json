@@ -1,0 +1,98 @@
+{
+  "instrument": {
+    "name": "Bawu in F",
+    "subtitle": "Staff notation · F=1 · Range A3–D5",
+    "icon": "🎶",
+    "description": "The bawu (巴乌) is a free-reed instrument originating among the minority peoples of Yunnan province in southwest China—particularly the Hani, Yi, Dai, and Hmong. Despite its flute-like appearance it produces sound through a small metal reed, much like a harmonica. It can be played either horizontally or vertically. Its tone is sweet and mournful, with a rich buzzing quality in the lower register that becomes progressively smoother higher up. Players make expressive use of pitch bends, glides, and vibrato. The bawu has become a standard instrument throughout China and is frequently heard in film scores—most notably in Crouching Tiger, Hidden Dragon. This bawu is in F, meaning F4 is the note produced with the three upper holes and the thumb hole covered, following Chinese convention. The instrument has six front holes and a thumb hole; its standard range is C4 to D5, with A3 accessible by underblowing."
+  },
+  "genres": [
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "In a Glade",
+      "genre": "traditional-folk",
+      "traditional": "Ukrainian traditional",
+      "arranger": "Milla Jovovich",
+      "arrangerUrl": "https://en.wikipedia.org/wiki/Milla_Jovovich",
+      "files": {
+        "staff": "in-a-glade_milla-jovovich_traditional_bawu-f.pdf",
+        "mp3": "in-a-glade_milla-jovovich_traditional_bawu-f.mp3"
+      }
+    },
+    {
+      "title": "夕阳箫鼓 (Xunyin in Moonlight)",
+      "genre": "traditional-folk",
+      "traditional": "Chinese traditional",
+      "files": {
+        "staff": "夕阳箫鼓_xunyin-in-moonlight_bawu-f.pdf",
+        "mp3": "夕阳箫鼓_xunyin-in-moonlight_bawu-f.mp3"
+      }
+    },
+    {
+      "title": "江河水 (River of Sorrow)",
+      "genre": "traditional-folk",
+      "composer": "Wang Shilu & Zhu Guangqing",
+      "arranger": "Huang Hai Huai",
+      "arrangerUrl": "https://en.wikipedia.org/wiki/Erhu#Notable_erhu_players",
+      "files": {
+        "staff": "江河水 (river of sorrow)_bawu-f.pdf",
+        "mp3": "江河水 (river of sorrow)_bawu-f.mp3"
+      }
+    },
+    {
+      "title": "Gabriel's Oboe",
+      "genre": "soundtrack",
+      "composer": "Ennio Morricone",
+      "composerUrl": "https://en.wikipedia.org/wiki/Ennio_Morricone",
+      "files": {
+        "staff": "gabriels-oboe_ennio-morricone_bawu-f.pdf",
+        "mp3": "gabriels-oboe_ennio-morricone_bawu-f.mp3"
+      }
+    },
+    {
+      "title": "Oogway Ascends",
+      "genre": "soundtrack",
+      "composer": "Hans Zimmer",
+      "composerUrl": "https://en.wikipedia.org/wiki/Hans_Zimmer",
+      "files": {
+        "staff": "oogway-ascends_hans-zimmer_bawu-F.pdf",
+        "mp3": "oogway-ascends_hans-zimmer_bawu-F.mp3"
+      }
+    },
+    {
+      "title": "Colors of the Wind",
+      "genre": "soundtrack",
+      "composer": "Alan Menken",
+      "composerUrl": "https://en.wikipedia.org/wiki/Alan_Menken",
+      "files": {
+        "staff": "pocahontas_colors_of_the_wind-bawu-F.pdf",
+        "mp3": "pocahontas_colors_of_the_wind-bawu-F.mp3"
+      }
+    },
+    {
+      "title": "Foolish Games",
+      "genre": "pop-rock",
+      "composer": "Jewel",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jewel_(singer)",
+      "files": {
+        "staff": "foolish_games-jewel_kilcher_bawu-f.pdf",
+        "mp3": "foolish_games-jewel_kilcher_bawu-f.mp3"
+      }
+    },
+    {
+      "title": "Hurt",
+      "genre": "pop-rock",
+      "composer": "Nine Inch Nails",
+      "composerUrl": "https://en.wikipedia.org/wiki/Nine_Inch_Nails",
+      "performer": "Johnny Cash",
+      "performerUrl": "https://en.wikipedia.org/wiki/Johnny_Cash",
+      "files": {
+        "staff": "hurt-NiN-Johnny-Cash_bawu-F.pdf",
+        "mp3": "hurt-NiN-Johnny-Cash_bawu-F.mp3"
+      }
+    }
+  ]
+}

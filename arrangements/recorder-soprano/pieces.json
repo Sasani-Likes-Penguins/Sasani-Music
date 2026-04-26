@@ -1,0 +1,89 @@
+{
+  "instrument": {
+    "name": "Soprano Recorder",
+    "subtitle": "Staff notation · Standard fingering",
+    "icon": "🎵",
+    "description": "The soprano recorder, also known as the descant, is the third-smallest instrument of the modern recorder family, pitched in C with a range of C5 to D7. Its clear, sweet tone has historically been associated with birds and pastoral scenes, and Baroque opera composers often called for it in supernatural, pastoral, love, or funeral scenes. Notably, it holds the distinction of having the largest solo wind instrument repertoire in European history—Jacob van Eyck's Der Fluyten Lust-hof. By the late 18th century it fell out of favor as the transverse flute gained greater volume and projection, but was revived in the early 20th century through the work of Arnold Dolmetsch. The soprano shares its fingering system with the tenor recorder, which sounds an octave lower—players comfortable with one will find the other immediately familiar."
+  },
+  "genres": [
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "My Mother Told Me",
+      "genre": "traditional-folk",
+      "traditional": "Norse/Viking traditional",
+      "variants": [
+        {
+          "label": "Extended version",
+          "files": {
+            "staff": "my-mother-told-me_extended_rec-soprano.pdf",
+            "mp3": "my-mother-told-me_extended_rec-soprano.mp3"
+          }
+        }
+      ]
+    },
+    {
+      "title": "夕阳箫鼓 (Xunyin in Moonlight)",
+      "genre": "traditional-folk",
+      "traditional": "Chinese traditional",
+      "files": {
+        "staff": "夕阳箫鼓_xunyin-in-moonlight_soprano-rec.pdf",
+        "mp3": "夕阳箫鼓_xunyin-in-moonlight_soprano-rec.mp3"
+      }
+    },
+    {
+      "title": "Silent Night",
+      "genre": "traditional-folk",
+      "traditional": "Traditional carol",
+      "files": {
+        "staff": "silent_night-soprano-rec.pdf",
+        "mp3": "silent_night-soprano-rec.mp3"
+      }
+    },
+    {
+      "title": "Oogway Ascends",
+      "genre": "soundtrack",
+      "composer": "Hans Zimmer",
+      "composerUrl": "https://en.wikipedia.org/wiki/Hans_Zimmer",
+      "files": {
+        "staff": "oogway-ascends_hans-zimmer_recorder-soprano.pdf",
+        "mp3": "oogway-ascends_hans-zimmer_recorder-soprano.mp3"
+      }
+    },
+    {
+      "title": "The Sleeping Tune (with Extended Variations)",
+      "genre": "soundtrack",
+      "composer": "Gordon Duncan",
+      "composerUrl": "https://en.wikipedia.org/wiki/Gordon_Duncan",
+      "files": {
+        "staff": "the_sleeping_tune-gordon_duncan-with_ext_variations-soprano-rec.pdf",
+        "mp3": "the_sleeping_tune-gordon_duncan-with_ext_variations-soprano-rec.mp3"
+      }
+    },
+    {
+      "title": "Hurt",
+      "genre": "pop-rock",
+      "composer": "Nine Inch Nails",
+      "composerUrl": "https://en.wikipedia.org/wiki/Nine_Inch_Nails",
+      "performer": "Johnny Cash",
+      "performerUrl": "https://en.wikipedia.org/wiki/Johnny_Cash",
+      "files": {
+        "staff": "hurt-NiN-Johnny-Cash_recorder-soprano.pdf",
+        "mp3": "hurt-NiN-Johnny-Cash_recorder-soprano.mp3"
+      }
+    },
+    {
+      "title": "Nights in White Satin",
+      "genre": "pop-rock",
+      "composer": "Moody Blues",
+      "composerUrl": "https://en.wikipedia.org/wiki/The_Moody_Blues",
+      "files": {
+        "staff": "nights-in-white-satin_moody-blues_soprano-rec.pdf",
+        "mp3": "nights-in-white-satin_moody-blues_soprano-rec.mp3"
+      }
+    }
+  ]
+}

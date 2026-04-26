@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tenor Recorder — Sasani Music</title>
+  <title>Sasani Music</title>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,6 +43,7 @@
     .star { position: absolute; border-radius: 50%; background: var(--star); animation: twinkle var(--d, 3s) ease-in-out infinite alternate; }
     @keyframes twinkle { from { opacity: 0.1; transform: scale(0.8); } to { opacity: 0.7; transform: scale(1.2); } }
 
+    /* ── NAV ── */
     nav {
       position: relative; z-index: 10;
       padding: 1.25rem 2rem; border-bottom: 1px solid var(--border);
@@ -52,6 +53,7 @@
     nav a { color: var(--pink-dim); text-decoration: none; transition: color 0.2s; }
     nav a:hover { color: var(--pink); }
 
+    /* ── HEADER ── */
     header { position: relative; z-index: 10; text-align: center; padding: 3.5rem 2rem 2.5rem; }
 
     .icon-bubble {
@@ -66,6 +68,7 @@
     h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: var(--text); animation: fadeUp 0.7s ease 0.1s both; }
     .subtitle { margin-top: 0.4rem; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal-dim); animation: fadeUp 0.7s ease 0.2s both; }
 
+    /* ── ABOUT ── */
     .instrument-about {
       position: relative; z-index: 10;
       max-width: 700px; margin: 2.5rem auto;
@@ -77,11 +80,10 @@
     .instrument-about h2 { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dim); margin-bottom: 0.75rem; }
     .instrument-about p { font-size: 0.95rem; color: var(--text-soft); margin-bottom: 0.75rem; }
     .instrument-about p:last-of-type { margin-bottom: 0; }
-    .instrument-about a { color: var(--teal-dim); text-decoration: none; }
-    .instrument-about a:hover { color: var(--teal); }
     .ref-link { display: inline-block; margin-top: 0.9rem; font-size: 0.72rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.08em; }
     .ref-link:hover { color: var(--pink); }
 
+    /* ── PIECES ── */
     .section-wrap { position: relative; z-index: 10; max-width: 820px; margin: 0 auto 5rem; padding: 0 2rem; }
 
     .genre-group { margin-bottom: 2.5rem; }
@@ -110,7 +112,16 @@
     .piece-composer a { color: var(--teal-dim); text-decoration: none; transition: color 0.2s; }
     .piece-composer a:hover { color: var(--teal); }
 
-    .controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+    .piece-notes {
+      font-size: 0.78rem; color: var(--text-dim);
+      font-style: italic; margin-top: 0.5rem;
+    }
+
+    .variant { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+    .variant-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.5rem; }
+
+    .controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .controls:last-child { margin-bottom: 0; }
 
     .btn-pdf {
       display: inline-flex; align-items: center; gap: 0.35rem;
@@ -124,6 +135,20 @@
 
     audio { height: 32px; flex: 1; min-width: 200px; accent-color: var(--pink); }
 
+    /* ── STATES ── */
+    .loading {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--text-dim); font-size: 0.9rem; letter-spacing: 0.1em;
+      position: relative; z-index: 10;
+    }
+
+    .error {
+      text-align: center; padding: 2rem;
+      color: var(--rose, #c47a8a); font-size: 0.9rem;
+      position: relative; z-index: 10;
+    }
+
+    /* ── FOOTER ── */
     footer {
       position: relative; z-index: 10; text-align: center;
       padding: 2rem; border-top: 1px solid var(--border);
@@ -133,6 +158,7 @@
     footer a:hover { color: var(--pink); }
     .footer-heart { color: var(--pink); }
 
+    /* ── ANIMATIONS ── */
     @keyframes popIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -150,343 +176,23 @@
   <nav>
     <a href="../../index.html">Sasani Music</a>
     <span>›</span>
-    <span>Tenor Recorder</span>
+    <span id="nav-title">Loading…</span>
   </nav>
 
   <header>
-    <div class="icon-bubble">🎵</div>
-    <h1>Tenor Recorder</h1>
-    <p class="subtitle">Staff notation · Standard fingering</p>
+    <div class="icon-bubble" id="header-icon">𝄞</div>
+    <h1 id="header-title">Loading…</h1>
+    <p class="subtitle" id="header-subtitle"></p>
   </header>
 
-  <section class="instrument-about">
+  <section class="instrument-about" id="about-section">
     <h2>About this instrument</h2>
-    <p>
-      The tenor recorder is a mid-range member of the recorder family, tuned in C with a range
-      of C4 to approximately D6. The recorder family is large and varied, encompassing instruments
-      from the tiny garklein down through sopranino, fourth and sixth flutes, soprano in C,
-      alto in G, alto in F, and voice flute in D, among others. In 18th century German-speaking
-      countries the tenor was known as the Quartflöte—"fourth flute"—after the interval it forms
-      below the alto recorder in F. Originating in Europe during the 15th and 16th centuries, it emerged as the fourth
-      voice in Renaissance consorts, played alongside soprano, alto, and bass recorders to perform
-      vocal-style polyphony in court and amateur settings. Its tone is warm and mellow, with
-      greater depth and body than the soprano. The tenor shares its fingering system with the
-      soprano recorder and sounds an octave lower, making it straightforward for soprano players
-      to transfer. Much of the repertoire of the Baroque traverso flute is commonly adapted for
-      the tenor recorder.
-    </p>
-    <p>
-      Standard tenor recorders are considerably longer than the soprano, requiring a wider hand
-      span that can be challenging for players with small hands, arthritis, or other conditions
-      affecting hand mobility. The
-      <a href="https://www.kunath-recorder.de/en/sigo" target="_blank" rel="noopener">Kunath Sigo tenor</a>,
-      developed in collaboration between Kunath Instrumentenbau and recorder maker Geri Bollinger,
-      addresses this with a folded bore design—the internal air column is the same length as a
-      standard tenor, producing the same full tenor pitch, but the body itself is much shorter,
-      giving it nearly the same grip width as a soprano recorder. An angled headjoint and an
-      integrated thumb rest further reduce hand strain, making it particularly well suited to
-      players with hand pain, smaller hands, or those transitioning from soprano or alto. The
-      instrument is made from RESONA, a plant-based biopolymer developed by Kunath containing
-      approximately 30% wood, giving it tonal warmth comparable to rosewood with greater
-      resilience.
-    </p>
+    <div id="about-text"></div>
     <a class="ref-link" href="../../references.html">Sources &amp; references →</a>
   </section>
 
-  <div class="section-wrap">
-
-    <!-- MEDIEVAL / RENAISSANCE -->
-    <div class="genre-group">
-      <p class="genre-label">🏰 Medieval &amp; Renaissance</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Doen Daphne d'over Schoone Maeght</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Jacob_van_Eyck" target="_blank" rel="noopener">Jacob van Eyck</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./doen_daphne_dover_schoone_maeght-jacob_van_eyck_tenor_recorder_solo.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./doen_daphne_dover_schoone_maeght-jacob_van_eyck_tenor_recorder_solo.mp3"></audio>
-        </div>
-      </div>
-    </div>
-
-    <!-- BAROQUE -->
-    <div class="genre-group">
-      <p class="genre-label">🎻 Baroque</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Dance of the Blessed Spirits (from Orfeo ed Euridice)</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Christoph_Willibald_Gluck" target="_blank" rel="noopener">Christoph Willibald Gluck</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./dance_of_the_blessed_spirits-from_orfeo_ed_euridice_tenor_recorder_solo.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./dance_of_the_blessed_spirits-from_orfeo_ed_euridice_tenor_recorder_solo.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Dido's Lament</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Henry_Purcell" target="_blank" rel="noopener">Henry Purcell</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./didos_lament-henry_purcell-tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./didos_lament-henry_purcell-tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Prelude, Cello Suite No. 1 BWV 1007</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach" target="_blank" rel="noopener">J.S. Bach</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./prelude_cello-suite-no1-bwv1007_recorder-tenor.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./prelude_cello-suite-no1-bwv1007_recorder-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Siciliano BWV 1031</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach" target="_blank" rel="noopener">J.S. Bach</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./siciliano-js_bach_bwv_1031_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./siciliano-js_bach_bwv_1031_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-    </div>
-
-    <!-- CLASSICAL / ROMANTIC -->
-    <div class="genre-group">
-      <p class="genre-label">🌹 Classical &amp; Romantic</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Ave Maria Op. 52 No. 9</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Franz_Schubert" target="_blank" rel="noopener">Schubert</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./ave_maria-schubert_opus_52-no-9_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./ave_maria-schubert_opus_52-no-9_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Habanera</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Georges_Bizet" target="_blank" rel="noopener">Bizet</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./habanera-tenor-recorder-solo-bizet.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./habanera-tenor-recorder-solo-bizet.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Evocación (Suite del Recuerdo No. 1)</span>
-          <span class="piece-composer"><a href="https://joseluismerlin.com" target="_blank" rel="noopener">José Luis Merlín</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./evocación_suite-del-recuerdo-no-1_josé-luis-merlin-tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./evocación_suite-del-recuerdo-no-1_josé-luis-merlin-tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-    </div>
-
-    <!-- TRADITIONAL / FOLK -->
-    <div class="genre-group">
-      <p class="genre-label">🌿 Traditional &amp; Folk</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">My Mother Told Me</span>
-          <span class="piece-composer">Norse/Viking traditional</span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./my-mother-told-me_extended_rec-tenor.pdf" target="_blank">📄 Sheet Music (extended)</a>
-          <audio controls src="./my-mother-told-me_extended_rec-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">In a Glade</span>
-          <span class="piece-composer">Ukrainian traditional, arr. &amp; perf. <a href="https://en.wikipedia.org/wiki/Milla_Jovovich" target="_blank" rel="noopener">Milla Jovovich</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./in_a_glade-milla_jovovich_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./in_a_glade-milla_jovovich_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">挂红灯 (Hanging Lantern)</span>
-          <span class="piece-composer">Chinese traditional</span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./挂红灯_hanging-lantern_recorder-tenor.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./挂红灯_hanging-lantern_recorder-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Silent Night</span>
-          <span class="piece-composer">Traditional carol</span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./silent_night-tenor-rec.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./silent_night-tenor-rec.mp3"></audio>
-        </div>
-      </div>
-    </div>
-
-    <!-- 20TH CENTURY / SOUNDTRACK -->
-    <div class="genre-group">
-      <p class="genre-label">🎬 20th Century &amp; Soundtrack</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Gabriel's Oboe</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Ennio_Morricone" target="_blank" rel="noopener">Ennio Morricone</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./gabriels_oboe-ennio_morricone_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./gabriels_oboe-ennio_morricone_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Oogway Ascends</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Hans_Zimmer" target="_blank" rel="noopener">Hans Zimmer</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./oogway-ascends_hans-zimmer_recorder-tenor.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./oogway-ascends_hans-zimmer_recorder-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Colors of the Wind</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Alan_Menken" target="_blank" rel="noopener">Alan Menken</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./pocahontas_colors_of_the_wind-tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./pocahontas_colors_of_the_wind-tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">The Sleeping Tune (with Extended Variations)</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Gordon_Duncan" target="_blank" rel="noopener">Gordon Duncan</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./the_sleeping_tune-gordon_duncan-with_ext_variations-tenor-rec.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./the_sleeping_tune-gordon_duncan-with_ext_variations-tenor-rec.mp3"></audio>
-        </div>
-      </div>
-    </div>
-
-    <!-- POP / ROCK -->
-    <div class="genre-group">
-      <p class="genre-label">🎸 Pop &amp; Rock</p>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Nothing Compares 2 U</span>
-          <span class="piece-composer">
-            <a href="https://en.wikipedia.org/wiki/Prince_(musician)" target="_blank" rel="noopener">Prince</a>
-            (composer) /
-            <a href="https://en.wikipedia.org/wiki/Sin%C3%A9ad_O%27Connor" target="_blank" rel="noopener">Sinéad O'Connor</a>
-            (performer)
-          </span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./nothing_compares_2_u-prince_sinead_oconnor_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./nothing_compares_2_u-prince_sinead_oconnor_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Nights in White Satin</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/The_Moody_Blues" target="_blank" rel="noopener">Moody Blues</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./nights-in-white-satin_moody-blues_tenor-rec.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./nights-in-white-satin_moody-blues_tenor-rec.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Hurt</span>
-          <span class="piece-composer">
-            <a href="https://en.wikipedia.org/wiki/Nine_Inch_Nails" target="_blank" rel="noopener">Nine Inch Nails</a> /
-            <a href="https://en.wikipedia.org/wiki/Johnny_Cash" target="_blank" rel="noopener">Johnny Cash</a>
-          </span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./hurt-NiN-Johnny-Cash_recorder-tenor.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./hurt-NiN-Johnny-Cash_recorder-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Wicked Game</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Chris_Isaak" target="_blank" rel="noopener">Chris Isaak</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./wicked-game_chris-isaak_recorder-tenor.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./wicked-game_chris-isaak_recorder-tenor.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Foolish Games</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Jewel_(singer)" target="_blank" rel="noopener">Jewel</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./foolish_games-jewel_kilcher_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./foolish_games-jewel_kilcher_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Time After Time</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Cyndi_Lauper" target="_blank" rel="noopener">Cyndi Lauper</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./time_after_time-cyndi_lauper_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./time_after_time-cyndi_lauper_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-      <div class="piece">
-        <div class="piece-header">
-          <span class="piece-title">Fuck Her Gently</span>
-          <span class="piece-composer"><a href="https://en.wikipedia.org/wiki/Tenacious_D" target="_blank" rel="noopener">Tenacious D</a></span>
-        </div>
-        <div class="controls">
-          <a class="btn-pdf" href="./fuck_her_gently-tenacious_d_tenor_recorder.pdf" target="_blank">📄 Sheet Music</a>
-          <audio controls src="./fuck_her_gently-tenacious_d_tenor_recorder.mp3"></audio>
-        </div>
-      </div>
-
-    </div>
-
+  <div id="piece-list">
+    <div class="loading">Loading pieces…</div>
   </div>
 
   <footer>
@@ -494,14 +200,153 @@
   </footer>
 
   <script>
-    const container = document.getElementById('stars');
+    // ── STARFIELD ──
+    const starsEl = document.getElementById('stars');
     for (let i = 0; i < 60; i++) {
       const s = document.createElement('div');
       s.className = 'star';
       const size = Math.random() * 2.5 + 1;
       s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
-      container.appendChild(s);
+      starsEl.appendChild(s);
     }
+
+    // ── COMPOSER HTML ──
+    function linked(name, url) {
+      return url ? `<a href="${url}" target="_blank" rel="noopener">${name}</a>` : name;
+    }
+
+    function makeComposerHtml(piece) {
+      const parts = [];
+
+      if (piece.composer) {
+        const name = linked(piece.composer, piece.composerUrl);
+        parts.push(piece.performer ? `${name} (composer)` : name);
+      }
+
+      if (piece.arranger) {
+        parts.push(`arr. ${linked(piece.arranger, piece.arrangerUrl)}`);
+      }
+
+      if (piece.performer) {
+        parts.push(`perf. ${linked(piece.performer, piece.performerUrl)}`);
+      }
+
+      if (piece.traditional) {
+        parts.push(piece.traditional);
+      }
+
+      return parts.join(' / ');
+    }
+
+    // ── FILE BUTTONS ──
+    function makeFilesHtml(files) {
+      if (!files) return '';
+      const btns = [];
+
+      if (files.staff && files.tabs) {
+        btns.push(`<a class="btn-pdf" href="./${files.staff}" target="_blank">📄 Staff</a>`);
+        btns.push(`<a class="btn-pdf" href="./${files.tabs}" target="_blank">📄 Tabs</a>`);
+      } else if (files.staffAndTabs) {
+        btns.push(`<a class="btn-pdf" href="./${files.staffAndTabs}" target="_blank">📄 Staff + Tabs</a>`);
+      } else if (files.staff) {
+        btns.push(`<a class="btn-pdf" href="./${files.staff}" target="_blank">📄 Sheet Music</a>`);
+      } else if (files.tabs) {
+        btns.push(`<a class="btn-pdf" href="./${files.tabs}" target="_blank">📄 Tabs</a>`);
+      }
+
+      if (files.bassClef)   btns.push(`<a class="btn-pdf" href="./${files.bassClef}" target="_blank">📄 Bass Clef</a>`);
+      if (files.trebleClef) btns.push(`<a class="btn-pdf" href="./${files.trebleClef}" target="_blank">📄 Treble Clef</a>`);
+      if (files.jianpu)     btns.push(`<a class="btn-pdf" href="./${files.jianpu}" target="_blank">📄 Jianpu</a>`);
+
+      let html = `<div class="controls">${btns.join('')}`;
+      if (files.mp3) html += `<audio controls src="./${files.mp3}"></audio>`;
+      html += `</div>`;
+      return html;
+    }
+
+    // ── PIECE HTML ──
+    function makePieceHtml(piece) {
+      const composerHtml = makeComposerHtml(piece);
+      let html = `
+        <div class="piece">
+          <div class="piece-header">
+            <span class="piece-title">${piece.title}</span>
+            ${composerHtml ? `<span class="piece-composer">${composerHtml}</span>` : ''}
+          </div>
+          ${makeFilesHtml(piece.files)}`;
+
+      if (piece.variants) {
+        for (const v of piece.variants) {
+          html += `
+          <div class="variant">
+            <p class="variant-label">✦ ${v.label}</p>
+            ${makeFilesHtml(v.files)}
+          </div>`;
+        }
+      }
+
+      if (piece.notes) {
+        html += `<p class="piece-notes">${piece.notes}</p>`;
+      }
+
+      html += `</div>`;
+      return html;
+    }
+
+    // ── LOAD & RENDER ──
+    async function loadPieces() {
+      try {
+        const res = await fetch('./pieces.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Header
+        const name = data.instrument.name;
+        document.title = `${name} — Sasani Music`;
+        document.getElementById('nav-title').textContent = name;
+        document.getElementById('header-icon').textContent = data.instrument.icon || '🎵';
+        document.getElementById('header-title').textContent = name;
+        document.getElementById('header-subtitle').textContent = data.instrument.subtitle || '';
+
+        // Description — supports multiple paragraphs as array or single string
+        const aboutEl = document.getElementById('about-text');
+        const desc = data.instrument.description;
+        if (Array.isArray(desc)) {
+          aboutEl.innerHTML = desc.map(p => `<p>${p}</p>`).join('');
+        } else {
+          aboutEl.innerHTML = `<p>${desc}</p>`;
+        }
+
+        // Group pieces by genre preserving defined order
+        const grouped = {};
+        for (const g of data.genres) grouped[g.id] = [];
+        for (const piece of data.pieces) {
+          if (!grouped[piece.genre]) grouped[piece.genre] = [];
+          grouped[piece.genre].push(piece);
+        }
+
+        // Build piece list
+        const wrap = document.getElementById('piece-list');
+        let html = '<div class="section-wrap">';
+        for (const genre of data.genres) {
+          const pieces = grouped[genre.id];
+          if (!pieces || pieces.length === 0) continue;
+          html += `<div class="genre-group">
+            <p class="genre-label">${genre.label}</p>
+            ${pieces.map(makePieceHtml).join('')}
+          </div>`;
+        }
+        html += '</div>';
+        wrap.innerHTML = html;
+
+      } catch (err) {
+        document.getElementById('piece-list').innerHTML =
+          `<div class="error">Could not load piece list. Please try refreshing the page.<br><small>${err.message}</small></div>`;
+        console.error(err);
+      }
+    }
+
+    loadPieces();
   </script>
 
 </body>

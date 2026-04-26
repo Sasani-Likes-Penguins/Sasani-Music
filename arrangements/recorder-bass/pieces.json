@@ -1,0 +1,110 @@
+{
+  "instrument": {
+    "name": "Bass Recorder",
+    "subtitle": "Staff notation · Bass & treble clef",
+    "icon": "🎵",
+    "description": "The bass recorder is pitched in F3, sitting between the tenor recorder and the great-bass in the recorder family. Due to its length, the lowest note F requires a key; modern instruments may also have keys for F♯, G, and G♯. A curved bocal—an S-shaped metal tube connecting the mouthpiece to the body—was introduced around 1650 to allow players to hold the instrument comfortably without excessive strain. Its tone is pleasant and mellow in the low register, rich with woody overtones, transitioning to a brighter quality higher up. Purcell employed the bass recorder in theatrical compositions to evoke pastoral or melancholic moods. In more recent times, John Paul Jones played four overdubbed bass recorders on Led Zeppelin's \"Stairway to Heaven,\" and composer Ludwig Göransson used one for the opening melody of The Mandalorian. Arrangements on this page are provided in both bass clef and treble clef where noted, to suit players of different reading backgrounds."
+  },
+  "genres": [
+    { "id": "medieval-renaissance", "label": "🏰 Medieval & Renaissance" },
+    { "id": "baroque", "label": "🎻 Baroque" },
+    { "id": "classical-romantic", "label": "🌹 Classical & Romantic" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" },
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" }
+  ],
+  "pieces": [
+    {
+      "title": "Doen Daphne d'over Schoone Maeght",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_bass-rec.pdf",
+        "mp3": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_bass-rec.mp3"
+      }
+    },
+    {
+      "title": "Allegretto",
+      "genre": "baroque",
+      "arranger": "Frans Brüggen",
+      "arrangerUrl": "https://en.wikipedia.org/wiki/Frans_Br%C3%BCggen",
+      "notes": "Composer unknown",
+      "files": {
+        "staff": "allegretto_frans-brüggen_bass-recorder.pdf",
+        "mp3": "allegretto_frans-brüggen_bass-recorder.mp3"
+      }
+    },
+    {
+      "title": "Arioso from Cantata BWV 156",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "arioso_from_cantata_bwvno156-bach-js_bass-rec.pdf",
+        "mp3": "arioso_from_cantata_bwvno156-bach-js_bass-rec.mp3"
+      }
+    },
+    {
+      "title": "Dido's Lament",
+      "genre": "baroque",
+      "composer": "Henry Purcell",
+      "composerUrl": "https://en.wikipedia.org/wiki/Henry_Purcell",
+      "files": {
+        "staff": "didos_lament-henry_purcell-bass-rec.pdf",
+        "mp3": "didos_lament-henry_purcell-bass-rec.mp3"
+      }
+    },
+    {
+      "title": "Ave Maria Op. 52 No. 9",
+      "genre": "classical-romantic",
+      "composer": "Schubert",
+      "composerUrl": "https://en.wikipedia.org/wiki/Franz_Schubert",
+      "files": {
+        "staff": "ave_maria-schubert_opus_52_no9_bass-rec.pdf",
+        "mp3": "ave_maria-schubert_opus_52_no9_bass-rec.mp3"
+      }
+    },
+    {
+      "title": "The Sleeping Tune (with Extended Variations)",
+      "genre": "soundtrack",
+      "composer": "Gordon Duncan",
+      "composerUrl": "https://en.wikipedia.org/wiki/Gordon_Duncan",
+      "files": {
+        "bassClef": "the_sleeping_tune-gordon_duncan-with_ext_variations-bass-rec-bass-clef.pdf",
+        "trebleClef": "the_sleeping_tune-gordon_duncan-with_ext_variations-bass-rec-treb-clef.pdf",
+        "mp3": "the_sleeping_tune-gordon_duncan-with_ext_variations-bass-rec.mp3"
+      }
+    },
+    {
+      "title": "Foolish Games",
+      "genre": "pop-rock",
+      "composer": "Jewel",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jewel_(singer)",
+      "files": {
+        "staff": "foolish_games-jewel_kilcher_bass-rec.pdf",
+        "mp3": "foolish_games-jewel_kilcher_bass-rec.mp3"
+      }
+    },
+    {
+      "title": "Nights in White Satin",
+      "genre": "pop-rock",
+      "composer": "Moody Blues",
+      "composerUrl": "https://en.wikipedia.org/wiki/The_Moody_Blues",
+      "files": {
+        "staff": "nights-in-white-satin_moody-blues_b-rec.pdf",
+        "mp3": "nights-in-white-satin_moody-blues_b-rec.mp3"
+      }
+    },
+    {
+      "title": "Silent Night",
+      "genre": "traditional-folk",
+      "traditional": "Traditional carol",
+      "files": {
+        "bassClef": "silent_night-bass-rec.pdf",
+        "trebleClef": "silent_night-bass-rec_treble-clef.pdf",
+        "mp3": "silent_night-bass-rec.mp3"
+      }
+    }
+  ]
+}

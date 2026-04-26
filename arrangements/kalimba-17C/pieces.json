@@ -1,0 +1,33 @@
+{
+  "instrument": {
+    "name": "Kalimba — 17 Tine, C Major",
+    "subtitle": "Staff notation · Range: two and a half octaves",
+    "icon": "🎹",
+    "description": "The kalimba is a lamellaphone—an instrument in which sound is produced by plucking flexible metal tines mounted on a wooden board or resonator. It descends from the mbira, a traditional instrument central to the musical and spiritual life of the Shona people of Zimbabwe, whose metal-tined ancestors first appeared in the Zambezi River valley around 1,300 years ago. In the mid-1950s, British ethnomusicologist Hugh Tracey adapted the mbira for Western audiences, naming his version the kalimba—a Bantu word meaning \"little music\"—and tuning it to the diatonic scale. The player holds the instrument in both palms, plucking the tines downward with the thumbs; notes alternate left and right outward from center, so adjacent tines naturally form chords. The overtones of a plucked tine are strongest in the attack and die away quickly, leaving an almost pure, bell-like tone. This instrument has 17 tines tuned to C major, giving a range of two and a half octaves well suited to melody playing."
+  },
+  "genres": [
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" }
+  ],
+  "pieces": [
+    {
+      "title": "Oogway Ascends",
+      "genre": "soundtrack",
+      "composer": "Hans Zimmer",
+      "composerUrl": "https://en.wikipedia.org/wiki/Hans_Zimmer",
+      "files": {
+        "staff": "oogway-ascends_hans-zimmer_kalimba-17C.pdf",
+        "mp3": "oogway-ascends_hans-zimmer_kalimba-17C.mp3"
+      }
+    },
+    {
+      "title": "夕阳箫鼓 (Xunyin in Moonlight)",
+      "genre": "traditional-folk",
+      "traditional": "Chinese traditional",
+      "files": {
+        "staff": "夕阳箫鼓_xunyin-in-moonlight_kalimba17-C.pdf",
+        "mp3": "夕阳箫鼓_xunyin-in-moonlight_kalimba17-C.mp3"
+      }
+    }
+  ]
+}

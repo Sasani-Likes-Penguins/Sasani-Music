@@ -1,0 +1,121 @@
+{
+  "instrument": {
+    "name": "Ukulele — Low G",
+    "subtitle": "Staff notation · Tablature · Tuning G–C–E–A (linear)",
+    "icon": "🪕",
+    "description": "The ukulele is of Portuguese origin, developed in the 1880s from small guitar-like instruments—the machete, cavaquinho, and rajão—brought to the Hawaiian Islands by Portuguese immigrants from Madeira, the Azores, and Cape Verde. Standard ukulele tuning is G–C–E–A, known as reentrant tuning: the G string sits higher in pitch than the adjacent C string, giving the instrument its characteristic bright, cheerful sound. Low-G tuning replaces this with a G string tuned one octave lower, creating a linear tuning where strings ascend in pitch from lowest to highest—the same pattern as most string instruments. This extends the range of the ukulele by five notes and creates a warmer, fuller sound with more bass content, making it particularly well suited to solo fingerpicking arrangements where bass lines and melody can be played simultaneously. Low-G tuning is most practical on concert and tenor-sized ukuleles; soprano ukuleles typically cannot support the heavier string. Arrangements on this page include both staff notation and tablature where noted."
+  },
+  "genres": [
+    { "id": "medieval-renaissance", "label": "🏰 Medieval & Renaissance" },
+    { "id": "baroque", "label": "🎻 Baroque" },
+    { "id": "classical-romantic", "label": "🌹 Classical & Romantic" },
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "Doen Daphne d'over Schoone Maeght",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_uk-low-g_staff.pdf",
+        "tabs": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_uk-low-g_tabs.pdf",
+        "mp3": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Siciliano BWV 1031",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "siciliano-js_bach_bwv_1031_uk-low-g_staff.pdf",
+        "tabs": "siciliano-js_bach_bwv_1031_uk-low-g_tabs.pdf",
+        "mp3": "siciliano-js_bach_bwv_1031_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Prelude, Cello Suite No. 1 BWV 1007",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "unaccompanied-cello-suite_js-bach_prelude1-BWV1007_uk-low-g_staff.pdf",
+        "tabs": "unaccompanied-cello-suite_js-bach_prelude1-BWV1007_uk-low-g_tabs.pdf",
+        "mp3": "unaccompanied-cello-suite_js-bach_prelude1-BWV1007_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Evocación (Suite del Recuerdo No. 1)",
+      "genre": "classical-romantic",
+      "composer": "José Luis Merlín",
+      "composerUrl": "https://joseluismerlin.com",
+      "files": {
+        "staffAndTabs": "evocación_luis-merlin_ukulele-low-g_staff-and-tabs.pdf",
+        "mp3": "evocación_luis-merlin_ukulele-low-g.mp3"
+      }
+    },
+    {
+      "title": "Scarborough Fair/Canticle",
+      "genre": "traditional-folk",
+      "traditional": "Traditional English ballad",
+      "arranger": "Simon & Garfunkel",
+      "arrangerUrl": "https://en.wikipedia.org/wiki/Simon_%26_Garfunkel",
+      "notes": "Arrangement after Martin Carthy",
+      "files": {
+        "staff": "scarborough_fair_canticle_uk-low-g_staff.pdf",
+        "tabs": "scarborough_fair_canticle_uk-low-g_tabs.pdf",
+        "mp3": "scarborough_fair_canticle_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Yuna's Theme (Final Fantasy X)",
+      "genre": "soundtrack",
+      "composer": "Nobuo Uematsu",
+      "composerUrl": "https://en.wikipedia.org/wiki/Nobuo_Uematsu",
+      "files": {
+        "staff": "yuna's-theme_ffx_nobuo-uematsu_uk-low-g_staff.pdf",
+        "tabs": "yuna's-theme_ffx_nobuo-uematsu_uk-low-g_tabs.pdf",
+        "mp3": "yuna's-theme_ffx_nobuo-uematsu_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Sweet Child O' Mine",
+      "genre": "pop-rock",
+      "composer": "Guns N' Roses",
+      "composerUrl": "https://en.wikipedia.org/wiki/Guns_N%27_Roses",
+      "files": {
+        "staff": "Guns_n_Roses_-_Sweet_Child_O_Mine_uk-low-g_staff.pdf",
+        "tabs": "Guns_n_Roses_-_Sweet_Child_O_Mine_uk-low-g_tabs.pdf",
+        "mp3": "Guns_n_Roses_-_Sweet_Child_O_Mine_uk-low-g.mp3"
+      }
+    },
+    {
+      "title": "Love Story",
+      "genre": "pop-rock",
+      "composer": "Indila",
+      "composerUrl": "https://en.wikipedia.org/wiki/Indila",
+      "files": {
+        "staff": "love-story_indila_ukulele-tenor-low-g_staff.pdf",
+        "tabs": "love-story_indila_ukulele-tenor-low-g_tabs.pdf",
+        "mp3": "love-story_indila_ukulele-tenor-low-g.mp3"
+      }
+    },
+    {
+      "title": "People Help the People",
+      "genre": "pop-rock",
+      "composer": "Cherry Ghost",
+      "composerUrl": "https://en.wikipedia.org/wiki/Cherry_Ghost",
+      "performer": "Birdy",
+      "performerUrl": "https://en.wikipedia.org/wiki/Birdy_(singer)",
+      "notes": "Written by Simon Aldred",
+      "files": {
+        "staff": "people-help-the-people_birdy_ukuele-low-g_staff.pdf",
+        "tabs": "people-help-the-people_birdy_ukuele-low-g_tabs.pdf",
+        "mp3": "people-help-the-people_birdy_ukuele-low-g.mp3"
+      }
+    }
+  ]
+}

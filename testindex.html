@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sasani Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0c14;
+      --bg2:        #141020;
+      --bg3:        #1a1528;
+      --surface:    #1f1a30;
+      --border:     #2e2845;
+      --pink:       #f0a0b8;
+      --pink-dim:   #a05878;
+      --pink-glow:  rgba(240,160,184,0.15);
+      --teal:       #7dcfbf;
+      --teal-dim:   #4a9e90;
+      --lavender:   #b8a8d8;
+      --text:       #e8e0f0;
+      --text-soft:  #a898c0;
+      --text-dim:   #6a5f80;
+      --star:       rgba(240,160,184,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── STARFIELD ── */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--star);
+      animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.1; transform: scale(0.8); }
+      to   { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      animation: popIn 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    .clef-bubble {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--pink-dim);
+      box-shadow: 0 0 24px var(--pink-glow), inset 0 0 16px rgba(240,160,184,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .clef-bubble:hover { transform: scale(1.08) rotate(-5deg); }
+
+    h1 {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .tagline {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      animation: fadeUp 0.8s ease 0.25s both;
+    }
+
+    .dots {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      animation: fadeUp 0.8s ease 0.35s both;
+    }
+
+    .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--pink-dim);
+    }
+
+    .dot:nth-child(2) { background: var(--teal-dim); }
+    .dot:nth-child(3) { background: var(--lavender); opacity: 0.6; }
+
+    /* ── ABOUT ── */
+    .about {
+      position: relative;
+      z-index: 10;
+      max-width: 680px;
+      margin: 2.5rem auto;
+      padding: 2rem 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(240,160,184,0.05);
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .about::before {
+      content: '♪';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      padding: 0 0.75rem;
+      color: var(--pink);
+      font-size: 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .about p {
+      font-size: 0.93rem;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .about p:last-of-type { margin-bottom: 0.75rem; }
+
+    .license-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      background: var(--bg3);
+      border: 1px solid var(--pink-dim);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--pink);
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .license-badge:hover {
+      background: var(--bg2);
+      box-shadow: 0 0 10px var(--pink-glow);
+    }
+
+    /* ── BROWSE SECTION ── */
+    .section-wrap {
+      position: relative;
+      z-index: 10;
+      max-width: 1040px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border));
+    }
+
+    .section-title::after {
+      background: linear-gradient(to left, transparent, var(--border));
+    }
+
+    /* ── GROUPS ── */
+    .group { margin-bottom: 2.25rem; }
+
+    .group-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.9rem;
+      padding: 0.2rem 0.8rem;
+      background: rgba(240,160,184,0.07);
+      border-radius: 20px;
+      border: 1px solid rgba(240,160,184,0.15);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--pink-dim);
+      background: var(--surface);
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3), 0 0 12px var(--pink-glow);
+    }
+
+    .card-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      width: 1.9rem;
+      text-align: center;
+    }
+
+    .card-name {
+      font-size: 0.84rem;
+      font-weight: 700;
+      font-size: 0.69rem;
+      letter-spacing: 0.1em;
+      color: var(--teal-dim);
+      display: block;
+      margin-top: 0.05rem;
+    }
+
+    .card-notation {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--pink-dim);
+      display: block;
+      margin-top: 0.15rem;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    footer a { color: var(--pink-dim); text-decoration: none; }
+    footer a:hover { color: var(--pink); }
+
+    .footer-heart { color: var(--pink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .about { margin: 2rem 1rem; padding: 1.75rem; }
+      .section-wrap { padding: 0 1rem; }
+    }
+
+    /* ── COMPOSITIONS SECTION ── */
+    .compositions {
+      position: relative;
+      z-index: 10;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      padding: 2rem 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--lavender);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .compositions::before {
+      content: '✦';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface);
+      padding: 0 0.75rem;
+      color: var(--lavender);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .compositions h2 {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+
+    .compositions p {
+      font-size: 0.93rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      background: rgba(184,168,216,0.08);
+      border: 1px solid rgba(184,168,216,0.3);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--lavender);
+    }
+
+    /* ── FLOATING NAV ── */
+    .nav-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+    }
+
+    .nav-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--pink-dim);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 16px var(--pink-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      color: var(--pink);
+      user-select: none;
+    }
+
+    .nav-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 20px var(--pink-glow);
+    }
+
+    .nav-menu {
+      position: absolute;
+      bottom: 62px;
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.75rem 0;
+      min-width: 220px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-menu.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(240,160,184,0.07);
+      color: var(--pink);
+    }
+
+    .nav-menu .nav-icon {
+      font-size: 1rem;
+      width: 1.4rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .nav-menu hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0.4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      .nav-float { bottom: 1.25rem; right: 1.25rem; }
+      .compositions { margin: 0 1rem 2rem; padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STARFIELD -->
+  <div class="stars" aria-hidden="true" id="stars"></div>
+
+  <header>
+    <div class="logo-wrap">
+      <div class="clef-bubble">𝄞</div>
+      <h1>Sasani <span>Music</span></h1>
+      <p class="tagline">Free sheet music &amp; audio for every player</p>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about">
+    <p>
+      Sasani Music is a free, open library of sheet music arrangements paired with MP3 audio examples,
+      built to make music more accessible to everyone. Spanning many genres and eras, the arrangements
+      here cover a wide variety of instruments—from tin whistles and recorders to kalimba and xiao.
+      Notation styles include standard staff notation, whistle tabs, Nakai tabs for Native American flute,
+      and jianpu (numbered notation).
+    </p>
+    <p>
+      All arrangements are free to use, share, and adapt for non-commercial purposes.
+    </p>
+    <a class="license-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
+      🌸 CC BY-NC-SA 4.0 License
+    </a>
+  </section>
+
+  <section class="compositions">
+    <h2>Original Compositions</h2>
+    <p>
+      Original works by Sasani are coming soon—pieces composed specifically for the instruments
+      featured in this library, free to play and share under the same CC BY-NC-SA 4.0 license.
+    </p>
+    <span class="coming-soon-badge">✦ Coming Soon</span>
+  </section>
+
+  <div class="section-wrap">
+    <h2 class="section-title">Browse by Instrument</h2>
+
+    <div class="group" id="nav-whistles">
+      <p class="group-label">🪈 Whistles</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/whistle-high-d/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">High D major</span><span class="card-notation">staff · tabs</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-low-d/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low D major</span><span class="card-notation">staff · tabs</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-low-g/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">Low G major</span><span class="card-notation">staff · tabs</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-b/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B major</span><span class="card-notation">staff · tabs</span></span>
+        </a>
+        <a class="card" href="./arrangements/whistle-b♭/index.html">
+          <span class="card-icon">🪈</span>
+          <span class="card-text"><span class="card-name">Whistle</span><span class="card-key">B♭ major</span><span class="card-notation">staff · tabs</span></span>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="group" id="nav-recorders">
+      <p class="group-label">🎵 Recorders</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/recorder-soprano/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Soprano</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-alto/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Alto</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-tenor/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Tenor</span></span>
+        </a>
+        <a class="card" href="./arrangements/recorder-bass/index.html">
+          <span class="card-icon">🎵</span>
+          <span class="card-text"><span class="card-name">Recorder</span><span class="card-key">Bass</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group" id="nav-naf">
+      <p class="group-label">🎶 Native American Flute</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/naf-a/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">A minor</span><span class="card-notation">staff · Nakai tabs</span></span>
+        </a>
+        <a class="card" href="./arrangements/naf-f♯/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Native American Flute</span><span class="card-key">F♯ minor</span><span class="card-notation">staff · Nakai tabs</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group" id="nav-chinese">
+      <p class="group-label">🎶 Chinese Instruments</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/bawu-f/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Bawu</span><span class="card-key">F=1</span></span>
+        </a>
+        <a class="card" href="./arrangements/xiao-g/index.html">
+          <span class="card-icon">🎶</span>
+          <span class="card-text"><span class="card-name">Xiao</span><span class="card-key">G=1</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group" id="nav-world">
+      <p class="group-label">🌍 World Flutes</p>
+      <div class="cards">
+        <div class="card" style="opacity:0.5; cursor:default; pointer-events:none;">
+          <span class="card-icon">✦</span>
+          <span class="card-text"><span class="card-name">More instruments coming soon</span><span class="card-key">Various traditions</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="group" id="nav-ukulele">
+      <p class="group-label">🪕 Ukulele</p>
+      <div class="cards">
+
+        <a class="card" href="./arrangements/ukulele-low-g/index.html">
+          <span class="card-icon">🪕</span>
+          <span class="card-text"><span class="card-name">Ukulele</span><span class="card-key">Low G</span></span>
+        </a>
+        <a class="card" href="./arrangements/ukulele-bass/index.html">
+          <span class="card-icon">🪕</span>
+          <span class="card-text"><span class="card-name">Ukulele</span><span class="card-key">Bass</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group" id="nav-other">
+      <p class="group-label">✨ Other Instruments</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/harmonica-c/index.html">
+          <span class="card-icon">🎸</span>
+          <span class="card-text"><span class="card-name">Chromatic Harmonica</span><span class="card-key">C major</span></span>
+        </a>
+        <a class="card" href="./arrangements/kalimba-17C/index.html">
+          <span class="card-icon">🎹</span>
+          <span class="card-text"><span class="card-name">Kalimba</span><span class="card-key">17 Key — C</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="group" id="nav-ensemble">
+      <p class="group-label">🎼 Ensemble</p>
+      <div class="cards">
+        <a class="card" href="./arrangements/ensemble/index.html">
+          <span class="card-icon">🎼</span>
+          <span class="card-text"><span class="card-name">Ensemble Arrangements</span><span class="card-key">Multiple parts</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING NAV -->
+  <div class="nav-float">
+    <div class="nav-menu" id="navMenu">
+      <a href="#nav-whistles"><span class="nav-icon">🪈</span>Whistles</a>
+      <a href="#nav-recorders"><span class="nav-icon">🎵</span>Recorders</a>
+      <a href="#nav-naf"><span class="nav-icon">🎶</span>Native American Flute</a>
+      <a href="#nav-chinese"><span class="nav-icon">🎶</span>Chinese Instruments</a>
+      <a href="#nav-world"><span class="nav-icon">🌍</span>World Flutes</a>
+      <hr/>
+      <a href="#nav-ukulele"><span class="nav-icon">🪕</span>Ukulele</a>
+      <a href="#nav-other"><span class="nav-icon">✨</span>Other Instruments</a>
+      <a href="#nav-ensemble"><span class="nav-icon">🎼</span>Ensemble</a>
+    </div>
+    <div class="nav-toggle" id="navToggle" role="button" aria-label="Navigate to section">🎵</div>
+  </div>
+
+  <footer>
+    <p>made with <span class="footer-heart">♡</span> · sasani music ·
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a>
+    </p>
+  </footer>
+
+  <script>
+    // Starfield
+    const container = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 1;
+      s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*3+2).toFixed(1)}s;animation-delay:${(Math.random()*4).toFixed(1)}s;`;
+      container.appendChild(s);
+    }
+
+    // Floating nav
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      toggle.textContent = menu.classList.contains('open') ? '✕' : '🎵';
+    });
+    // Close when a link is clicked
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.textContent = '🎵';
+      });
+    });
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-float')) {
+        menu.classList.remove('open');
+        toggle.textContent = '🎵';
+      }
+    });
+  </script>
+
+</body>
+</html>

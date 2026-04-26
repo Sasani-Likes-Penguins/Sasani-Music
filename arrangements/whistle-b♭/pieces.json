@@ -1,0 +1,25 @@
+{
+  "instrument": {
+    "name": "Tin whistle/pennywhistle in B♭ (B♭4)",
+    "subtitle": "Staff notation · Tabs · B♭ major",
+    "icon": "🎶",
+    "description": "Description placeholder."
+  },
+  "genres": [
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+//    {
+ //     "title": "Nothing Compares 2 U",
+//      "genre": "pop-rock",
+//      "composer": "Prince",
+//      "composerUrl": "https://en.wikipedia.org/wiki/Prince_(musician)",
+//      "performer": "Sinéad O'Connor",
+//      "performerUrl": "https://en.wikipedia.org/wiki/Sin%C3%A9ad_O%27Connor",
+//      "files": {
+//        "staff": "nothing_compares_2_u-prince_sinead_oconnor_naf_in_a.pdf",
+//        "mp3": "nothing_compares_2_u-prince_sinead_oconnor_naf_in_a.mp3"
+//      }
+    }
+  ]
+}

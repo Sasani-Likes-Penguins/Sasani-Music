@@ -1,0 +1,254 @@
+{
+  "instrument": {
+    "name": "Tenor Recorder",
+    "subtitle": "Staff notation · Standard fingering",
+    "icon": "🎵",
+    "description": [
+      "The tenor recorder is a mid-range member of the recorder family, tuned in C with a range of C4 to approximately D6. The recorder family is large and varied, encompassing instruments from the tiny garklein down through sopranino, fourth and sixth flutes, soprano in C, alto in G, alto in F, and voice flute in D, among others. In 18th century German-speaking countries the tenor was known as the Quartflöte—\"fourth flute\"—after the interval it forms below the alto recorder in F. Originating in Europe during the 15th and 16th centuries, it emerged as the fourth voice in Renaissance consorts, played alongside soprano, alto, and bass recorders to perform vocal-style polyphony in court and amateur settings. Its tone is warm and mellow, with greater depth and body than the soprano. The tenor shares its fingering system with the soprano recorder and sounds an octave lower, making it straightforward for soprano players to transfer. Much of the repertoire of the Baroque traverso flute is commonly adapted for the tenor recorder.",
+      "Standard tenor recorders are considerably longer than the soprano, requiring a wider hand span that can be challenging for players with small hands, arthritis, or other conditions affecting hand mobility. The Kunath Sigo tenor, developed in collaboration between Kunath Instrumentenbau and recorder maker Geri Bollinger, addresses this with a folded bore design—the internal air column is the same length as a standard tenor, producing the same full tenor pitch, but the body itself is much shorter, giving it nearly the same grip width as a soprano recorder. An angled headjoint and an integrated thumb rest further reduce hand strain, making it particularly well suited to players with hand pain, smaller hands, or those transitioning from soprano or alto. The instrument is made from RESONA, a plant-based biopolymer developed by Kunath containing approximately 30% wood, giving it tonal warmth comparable to rosewood with greater resilience."
+    ]
+  },
+  "genres": [
+    { "id": "medieval-renaissance", "label": "🏰 Medieval & Renaissance" },
+    { "id": "baroque", "label": "🎻 Baroque" },
+    { "id": "classical-romantic", "label": "🌹 Classical & Romantic" },
+    { "id": "traditional-folk", "label": "🌿 Traditional & Folk" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "Doen Daphne d'over Schoone Maeght",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_tenor_recorder_solo.pdf",
+        "mp3": "doen_daphne_dover_schoone_maeght-jacob_van_eyck_tenor_recorder_solo.mp3"
+      }
+    },
+    {
+      "title": "Dance of the Blessed Spirits (from Orfeo ed Euridice)",
+      "genre": "baroque",
+      "composer": "Christoph Willibald Gluck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Christoph_Willibald_Gluck",
+      "files": {
+        "staff": "dance_of_the_blessed_spirits-from_orfeo_ed_euridice_tenor_recorder_solo.pdf",
+        "mp3": "dance_of_the_blessed_spirits-from_orfeo_ed_euridice_tenor_recorder_solo.mp3"
+      }
+    },
+    {
+      "title": "Dido's Lament",
+      "genre": "baroque",
+      "composer": "Henry Purcell",
+      "composerUrl": "https://en.wikipedia.org/wiki/Henry_Purcell",
+      "files": {
+        "staff": "didos_lament-henry_purcell-tenor_recorder.pdf",
+        "mp3": "didos_lament-henry_purcell-tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Prelude, Cello Suite No. 1 BWV 1007",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "prelude_cello-suite-no1-bwv1007_recorder-tenor.pdf",
+        "mp3": "prelude_cello-suite-no1-bwv1007_recorder-tenor.mp3"
+      }
+    },
+    {
+      "title": "Siciliano BWV 1031",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "siciliano-js_bach_bwv_1031_tenor_recorder.pdf",
+        "mp3": "siciliano-js_bach_bwv_1031_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Ave Maria Op. 52 No. 9",
+      "genre": "classical-romantic",
+      "composer": "Schubert",
+      "composerUrl": "https://en.wikipedia.org/wiki/Franz_Schubert",
+      "files": {
+        "staff": "ave_maria-schubert_opus_52-no-9_tenor_recorder.pdf",
+        "mp3": "ave_maria-schubert_opus_52-no-9_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Habanera",
+      "genre": "classical-romantic",
+      "composer": "Bizet",
+      "composerUrl": "https://en.wikipedia.org/wiki/Georges_Bizet",
+      "files": {
+        "staff": "habanera-tenor-recorder-solo-bizet.pdf",
+        "mp3": "habanera-tenor-recorder-solo-bizet.mp3"
+      }
+    },
+    {
+      "title": "Evocación (Suite del Recuerdo No. 1)",
+      "genre": "classical-romantic",
+      "composer": "José Luis Merlín",
+      "composerUrl": "https://joseluismerlin.com",
+      "files": {
+        "staff": "evocación_suite-del-recuerdo-no-1_josé-luis-merlin-tenor_recorder.pdf",
+        "mp3": "evocación_suite-del-recuerdo-no-1_josé-luis-merlin-tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "My Mother Told Me",
+      "genre": "traditional-folk",
+      "traditional": "Norse/Viking traditional",
+      "files": {
+        "staff": "my-mother-told-me_extended_rec-tenor.pdf",
+        "mp3": "my-mother-told-me_extended_rec-tenor.mp3"
+      },
+      "notes": "Extended version"
+    },
+    {
+      "title": "In a Glade",
+      "genre": "traditional-folk",
+      "traditional": "Ukrainian traditional",
+      "arranger": "Milla Jovovich",
+      "arrangerUrl": "https://en.wikipedia.org/wiki/Milla_Jovovich",
+      "files": {
+        "staff": "in_a_glade-milla_jovovich_tenor_recorder.pdf",
+        "mp3": "in_a_glade-milla_jovovich_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "挂红灯 (Hanging Lantern)",
+      "genre": "traditional-folk",
+      "traditional": "Chinese traditional",
+      "files": {
+        "staff": "挂红灯_hanging-lantern_recorder-tenor.pdf",
+        "mp3": "挂红灯_hanging-lantern_recorder-tenor.mp3"
+      }
+    },
+    {
+      "title": "Silent Night",
+      "genre": "traditional-folk",
+      "traditional": "Traditional carol",
+      "files": {
+        "staff": "silent_night-tenor-rec.pdf",
+        "mp3": "silent_night-tenor-rec.mp3"
+      }
+    },
+    {
+      "title": "Gabriel's Oboe",
+      "genre": "soundtrack",
+      "composer": "Ennio Morricone",
+      "composerUrl": "https://en.wikipedia.org/wiki/Ennio_Morricone",
+      "files": {
+        "staff": "gabriels_oboe-ennio_morricone_tenor_recorder.pdf",
+        "mp3": "gabriels_oboe-ennio_morricone_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Oogway Ascends",
+      "genre": "soundtrack",
+      "composer": "Hans Zimmer",
+      "composerUrl": "https://en.wikipedia.org/wiki/Hans_Zimmer",
+      "files": {
+        "staff": "oogway-ascends_hans-zimmer_recorder-tenor.pdf",
+        "mp3": "oogway-ascends_hans-zimmer_recorder-tenor.mp3"
+      }
+    },
+    {
+      "title": "Colors of the Wind",
+      "genre": "soundtrack",
+      "composer": "Alan Menken",
+      "composerUrl": "https://en.wikipedia.org/wiki/Alan_Menken",
+      "files": {
+        "staff": "pocahontas_colors_of_the_wind-tenor_recorder.pdf",
+        "mp3": "pocahontas_colors_of_the_wind-tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "The Sleeping Tune (with Extended Variations)",
+      "genre": "soundtrack",
+      "composer": "Gordon Duncan",
+      "composerUrl": "https://en.wikipedia.org/wiki/Gordon_Duncan",
+      "files": {
+        "staff": "the_sleeping_tune-gordon_duncan-with_ext_variations-tenor-rec.pdf",
+        "mp3": "the_sleeping_tune-gordon_duncan-with_ext_variations-tenor-rec.mp3"
+      }
+    },
+    {
+      "title": "Nothing Compares 2 U",
+      "genre": "pop-rock",
+      "composer": "Prince",
+      "composerUrl": "https://en.wikipedia.org/wiki/Prince_(musician)",
+      "performer": "Sinéad O'Connor",
+      "performerUrl": "https://en.wikipedia.org/wiki/Sin%C3%A9ad_O%27Connor",
+      "files": {
+        "staff": "nothing_compares_2_u-prince_sinead_oconnor_tenor_recorder.pdf",
+        "mp3": "nothing_compares_2_u-prince_sinead_oconnor_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Nights in White Satin",
+      "genre": "pop-rock",
+      "composer": "Moody Blues",
+      "composerUrl": "https://en.wikipedia.org/wiki/The_Moody_Blues",
+      "files": {
+        "staff": "nights-in-white-satin_moody-blues_tenor-rec.pdf",
+        "mp3": "nights-in-white-satin_moody-blues_tenor-rec.mp3"
+      }
+    },
+    {
+      "title": "Hurt",
+      "genre": "pop-rock",
+      "composer": "Nine Inch Nails",
+      "composerUrl": "https://en.wikipedia.org/wiki/Nine_Inch_Nails",
+      "performer": "Johnny Cash",
+      "performerUrl": "https://en.wikipedia.org/wiki/Johnny_Cash",
+      "files": {
+        "staff": "hurt-NiN-Johnny-Cash_recorder-tenor.pdf",
+        "mp3": "hurt-NiN-Johnny-Cash_recorder-tenor.mp3"
+      }
+    },
+    {
+      "title": "Wicked Game",
+      "genre": "pop-rock",
+      "composer": "Chris Isaak",
+      "composerUrl": "https://en.wikipedia.org/wiki/Chris_Isaak",
+      "files": {
+        "staff": "wicked-game_chris-isaak_recorder-tenor.pdf",
+        "mp3": "wicked-game_chris-isaak_recorder-tenor.mp3"
+      }
+    },
+    {
+      "title": "Foolish Games",
+      "genre": "pop-rock",
+      "composer": "Jewel",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jewel_(singer)",
+      "files": {
+        "staff": "foolish_games-jewel_kilcher_tenor_recorder.pdf",
+        "mp3": "foolish_games-jewel_kilcher_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Time After Time",
+      "genre": "pop-rock",
+      "composer": "Cyndi Lauper",
+      "composerUrl": "https://en.wikipedia.org/wiki/Cyndi_Lauper",
+      "files": {
+        "staff": "time_after_time-cyndi_lauper_tenor_recorder.pdf",
+        "mp3": "time_after_time-cyndi_lauper_tenor_recorder.mp3"
+      }
+    },
+    {
+      "title": "Fuck Her Gently",
+      "genre": "pop-rock",
+      "composer": "Tenacious D",
+      "composerUrl": "https://en.wikipedia.org/wiki/Tenacious_D",
+      "files": {
+        "staff": "fuck_her_gently-tenacious_d_tenor_recorder.pdf",
+        "mp3": "fuck_her_gently-tenacious_d_tenor_recorder.mp3"
+      }
+    }
+  ]
+}

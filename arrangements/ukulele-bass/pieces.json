@@ -1,0 +1,97 @@
+{
+  "instrument": {
+    "name": "Bass Ukulele",
+    "subtitle": "Staff notation · Tablature · Tuning E1–A1–D2–G2",
+    "icon": "🪕",
+    "description": "The ukulele is of Portuguese origin, developed in the 1880s from small guitar-like instruments—the machete, cavaquinho, and rajão—brought to the Hawaiian Islands by Portuguese immigrants from Madeira, the Azores, and Cape Verde. The bass ukulele is a recent innovation, introduced in 2009 by Kala Brand Music and designed by Owen Holt. It combines light-tension bass strings with a small ukulele-sized body and a powerful pickup to produce a deep, booming, and round tone—well known for its ability to closely replicate the sound of an upright bass. Despite its bass register, it retains the compact, portable character of the ukulele family. It is tuned E1–A1–D2–G2, the same pitch range as a standard bass guitar. Arrangements on this page are provided in staff notation, tablature, or both where noted."
+  },
+  "genres": [
+    { "id": "medieval-renaissance", "label": "🏰 Medieval & Renaissance" },
+    { "id": "baroque", "label": "🎻 Baroque" },
+    { "id": "soundtrack", "label": "🎬 20th Century & Soundtrack" },
+    { "id": "pop-rock", "label": "🎸 Pop & Rock" }
+  ],
+  "pieces": [
+    {
+      "title": "Doen Daphne d'over Schoone Maeght",
+      "genre": "medieval-renaissance",
+      "composer": "Jacob van Eyck",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jacob_van_Eyck",
+      "files": {
+        "staff": "doen-daphne-dover-schoone-maeght_jv-eyck_ukulele-bass.pdf",
+        "staffAndTabs": "doen-daphne-dover-schoone-maeght_jv-eyck_ukulele-bass_tabs.pdf",
+        "tabs": "doen-daphne-dover-schoone-maeght_jv-eyck_ukulele-bass_tabs-only.pdf",
+        "mp3": "doen-daphne-dover-schoone-maeght_jv-eyck_ukulele-bass.mp3"
+      }
+    },
+    {
+      "title": "Prelude, Cello Suite No. 1 BWV 1007",
+      "genre": "baroque",
+      "composer": "J.S. Bach",
+      "composerUrl": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+      "files": {
+        "staff": "prelude_cello-suite-no1-bwv1007_ukulele-bass-staff.pdf",
+        "staffAndTabs": "prelude_cello-suite-no1-bwv1007_ukulele-bass_tabs-w-staff.pdf",
+        "tabs": "prelude_cello-suite-no1-bwv1007_ukulele-bass-tabs.pdf",
+        "mp3": "prelude_cello-suite-no1-bwv1007_ukulele-bass.mp3"
+      }
+    },
+    {
+      "title": "Colors of the Wind",
+      "genre": "soundtrack",
+      "composer": "Alan Menken",
+      "composerUrl": "https://en.wikipedia.org/wiki/Alan_Menken",
+      "files": {
+        "staff": "pocahontas-colors-of-the-wind_bass-ukulele.pdf",
+        "tabs": "pocahontas-colors-of-the-wind_bass-ukulele-tabs.pdf",
+        "mp3": "pocahontas-colors-of-the-wind_bass-ukulele.mp3"
+      }
+    },
+    {
+      "title": "The Sleeping Tune (with Extended Variations)",
+      "genre": "soundtrack",
+      "composer": "Gordon Duncan",
+      "composerUrl": "https://en.wikipedia.org/wiki/Gordon_Duncan",
+      "files": {
+        "staff": "the_sleeping_tune-gordon_duncan-with_ext_variations-b-uku.pdf",
+        "tabs": "the_sleeping_tune-gordon_duncan-with_ext_variations-b-uku_tabs.pdf",
+        "mp3": "the_sleeping_tune-gordon_duncan-with_ext_variations-b-uku.mp3"
+      }
+    },
+    {
+      "title": "Linger",
+      "genre": "pop-rock",
+      "composer": "The Cranberries",
+      "composerUrl": "https://en.wikipedia.org/wiki/The_Cranberries",
+      "notes": "Written by Dolores O'Riordan & Noel Hogan",
+      "files": {
+        "staff": "linger_cranberries_b-uku.pdf",
+        "tabs": "linger_cranberries_b-uku-tabs.pdf",
+        "mp3": "linger_cranberries_b-uku.mp3"
+      }
+    },
+    {
+      "title": "Love Story",
+      "genre": "pop-rock",
+      "composer": "Indila",
+      "composerUrl": "https://en.wikipedia.org/wiki/Indila",
+      "files": {
+        "staff": "love-story_indila_ukulele-bass_staff.pdf",
+        "tabs": "love-story_indila_ukulele-bass_tabs.pdf",
+        "mp3": "love-story_indila_ukulele-bass.mp3"
+      }
+    },
+    {
+      "title": "Foolish Games",
+      "genre": "pop-rock",
+      "composer": "Jewel",
+      "composerUrl": "https://en.wikipedia.org/wiki/Jewel_(singer)",
+      "files": {
+        "staff": "foolish-games_jewel-kilcher_bass-ukulele.pdf",
+        "staffAndTabs": "foolish-games_jewel-kilcher_bass-ukulele_tabs.pdf",
+        "tabs": "foolish-games_jewel-kilcher_bass-ukulele_tabs-only.pdf",
+        "mp3": "foolish-games_jewel-kilcher_bass-ukulele.mp3"
+      }
+    }
+  ]
+}
