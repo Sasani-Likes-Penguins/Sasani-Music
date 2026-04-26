@@ -146,15 +146,15 @@
     }
 
     .about::before {
-      content: '♪';
+      content: '🎵';
       position: absolute;
-      top: -14px;
+      top: -20px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--surface);
       padding: 0 0.75rem;
       color: var(--pink);
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       border: 1px solid var(--border);
       border-radius: 20px;
     }
@@ -164,15 +164,26 @@
       color: var(--text-soft);
       margin-bottom: 0.6rem;
     }
-    .about h2, h3, h4, {
+    .about h2 {
       font-size: 1.2rem;
       letter-spacing: 0.05em;      
       text-align: center;
       color: var(--lavender);
       margin-bottom: 0.6rem;
     }
-    .about span {
+    .about h3 {
+      font-size: 1.0rem;
+      letter-spacing: 0.05em;      
       text-align: center;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+    .about h4 {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;      
+      text-align: center;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
     }
 
     .about p:last-of-type { margin-bottom: 0.75rem; }
@@ -349,15 +360,15 @@
     }
 
     .compositions::before {
-      content: '✦';
+      content: '🎼';
       position: absolute;
-      top: -14px;
-      /* left: 50%; */
+      top: -20px;
+      left: 50%;
       transform: translateX(-50%);
       background: var(--surface);
       padding: 0 0.75rem;
       color: var(--lavender);
-      font-size: 1rem;
+      font-size: 1.8rem;
       border: 1px solid var(--border);
       border-radius: 20px;
     }
@@ -376,10 +387,38 @@
       margin-bottom: 0.75rem;
     }
 
+
+    .coming-soon-badge {
+      position: relative;
+      z-index: 10;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      padding: 2rem 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--lavender);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .coming-soon-badge::before {
+      /* content: '✦';
+      /* position: absolute; */
+      top: -20px;
+      /* left: 50%; */
+      /* transform: translateX(-50%); */
+      background: var(--surface);
+      padding: 0 0.75rem;
+      color: var(--lavender);
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
     .coming-soon-badge {
       /* display: inline-flex; */
       align-items: center;
-      text-align: center;
+      text-align: left;
       gap: 0.4rem;
       padding: 0.3rem 0.9rem;
       background: rgba(184,168,216,0.08);
@@ -389,6 +428,14 @@
       letter-spacing: 0.04em;
       color: var(--lavender);
     }
+    .coming-soon-badge span {
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;      
+      text-align: center;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+
 
     /* ── FLOATING NAV ── */
     .nav-float {
@@ -512,35 +559,15 @@
     </a></p></center>
   </section>
   <section class="compositions">
-    <h2>✦ Original Compositions ✦</h2>
+    <h2>Original Compositions</h2>
     <p>
       Original works by Sasani are coming soon—pieces composed specifically for the instruments
       featured in this library, free to play and share under the same CC BY-NC-SA 4.0 license.
-    </p>
-    <span class="coming-soon-badge">🤖 AI Disclosure 🤖</span>
+    </p>    
     <p>
-      No AI is used in creating arrangements or compositions. Please expect human error. (I bet I'll mess up the site a lot as well too.)
+      <b>No AI</b> is used in creating arrangements or compositions. Please expect human error. (I bet I'll mess up the site a lot as well too.)
     </p>    
   </section>
-  <section class="about">
-    <center><h3>🌟 Coming Soon 🌟</h3></center>
-    <span class="coming-soon-badge">✦ Website ✦</span>
-    <p>
-      This site is functional but not complete. Some PDFs and MP3s need tweaking in various ways. More instruments will be added and the rest of what I have for the instruments below will be added soon. It took some time for me to set up a simpler way to add new music and instruments.
-    </p>
-    <span class="coming-soon-badge">✦ Planned instrument additions ✦</span>
-    <p>
-      Bansuri, B♭ clarinet, dizi, duduk, fujara, hulusi, kalimba - 21 tine, low F ukulele (low G tuned down a step), lyre harp, Moldavian/Hungarian kaval, Native American flute in B♭ minor, piano, steel tongue drum and more as I learn and/or acquire more instruments to play. Please look forward to it! 🩷
-    </p>
-    <span = class="coming-soon-badge">✦ Music additions ✦</span>
-    <p>
-      Currently not all of my arrangements are on the site. I'm working on it. More music is planned, but I've no idea what it might be yet. For comments, suggestions, and requests regarding arrangements please contact me here: sasani.github@penguinmail.com
-    </p>
-    <p>
-      Since I am committing myself to making music as accessible as one fatigued disabled person can, I am open to arrangement suggestions, requests for specific instruments for my current arrangements, transposing arrangements, etc., feel free to contact me. I can't guarantee I can do everything, but I will try my best. Please be sure to include the instrument(s), comfortable playing range, or other details. I do plan on attempting to add difficulty ratings to pieces, but I haven't decided the details on how I'll do that since I'm focused on getting the site updated with what I currently have arranged.
-    </p>
-  </section>
-
   <div class="section-wrap">
     <h2 class="section-title">Browse by Instrument</h2>
     <div class="group" id="nav-whistles">
@@ -685,9 +712,25 @@
     </div>
     <div class="nav-toggle" id="navToggle" role="button" aria-label="Navigate to section">🎵</div>
   </div>
-
+  <section class="compositions">    
+    <h3><p>Website</p></h3>
+    <p>
+      This site is functional but not complete. Some PDFs and MP3s need tweaking in various ways. More instruments will be added and the rest of what I have for the instruments below will be added soon. It took some time for me to set up a simpler way to add new music and instruments.
+    </p>
+    <h3><p>Planned instrument additions</p></h3>
+    <p>
+      Bansuri, B♭ clarinet, dizi, duduk, fujara, hulusi, kalimba - 21 tine, low F ukulele (low G tuned down a step), lyre harp, Moldavian/Hungarian kaval, Native American flute in B♭ minor, piano, steel tongue drum and more as I learn and/or acquire more instruments to play. Please look forward to it! 🩷
+    </p>
+    <h3><p>Music additions</p></h3>
+    <p>
+      Currently not all of my arrangements are on the site. I'm working on it. More music is planned, but I've no idea what it might be yet. For comments, suggestions, and requests regarding arrangements please contact me here: <i>sasani.github@penguinmail.com</i>
+    </p>  
+    <p><br>
+      Since I am committing myself to making music as accessible as one fatigued disabled person can, I am open to arrangement suggestions, requests for specific instruments for my current arrangements, transposing arrangements, etc., feel free to contact me. I can't guarantee I can do everything, but I will try my best. Please be sure to include the instrument(s), comfortable playing range, or other details. I do plan on attempting to add difficulty ratings to pieces, but I haven't decided the details on how I'll do that since I'm focused on getting the site updated with what I currently have arranged.
+    </p>
+  </section>
   <footer>
-    <p>made with <span class="footer-heart">♡</span> · sasani music ·
+        <p>made with <span class="footer-heart">♡</span> · <a href="mailto:sasani.github@penguinmail.com">sasani music</a> ·
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">cc by-nc-sa 4.0</a>
     </p>
   </footer>
