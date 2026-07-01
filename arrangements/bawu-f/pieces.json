@@ -14,7 +14,7 @@
     {
       "title": "In a Glade",
       "genre": "traditional-folk",
-      "traditional": "Ukrainian traditional",
+      "traditional": "Traditional Ukranian",
       "arranger": "Milla Jovovich",
       "arrangerUrl": "https://en.wikipedia.org/wiki/Milla_Jovovich",
       "files": {
@@ -23,9 +23,19 @@
       }
     },
     {
+      "title": "She Moved Through the Fair",
+      "genre": "traditional-folk",
+      "traditional": "Traditional Irish",
+      "composerUrl:": "https://en.wikipedia.org/wiki/She_Moved_Through_the_Fair", 
+      "files": {
+        "staff": "she-moved-through-the-fair_trad-irish_bawu-f.pdf",
+        "mp3": "she-moved-through-the-fair_trad-irish_bawu-f.mp3"
+      }
+    },
+    {
       "title": "夕阳箫鼓 (Xunyin in Moonlight)",
       "genre": "traditional-folk",
-      "traditional": "Chinese traditional",
+      "traditional": "Traditional Chinese",
       "files": {
         "staff": "夕阳箫鼓_xunyin-in-moonlight_bawu-f.pdf",
         "mp3": "夕阳箫鼓_xunyin-in-moonlight_bawu-f.mp3"
@@ -34,6 +44,7 @@
     {
       "title": "江河水 (River of Sorrow)",
       "genre": "traditional-folk",
+      "traditional": "Traditional Chinese",
       "composer": "Wang Shilu & Zhu Guangqing",
       "arranger": "Huang Hai Huai",
       "arrangerUrl": "https://en.wikipedia.org/wiki/Erhu#Notable_erhu_players",
